@@ -1,6 +1,6 @@
 
 // STYLES
-import './style.css';
+import './styles.css';
 
 export default function Login() {
     return (
