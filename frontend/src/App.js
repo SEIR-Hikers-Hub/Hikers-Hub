@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import Hikes from './pages/Hikes';
 // COMPONENTS
 import Nav from './components/Nav';
 import Footer from './components/Footer';
@@ -34,6 +35,11 @@ function App() {
         <Route
           path='/signup'
           element={ <SignUp /> }
+        />
+
+        <Route
+          path='/hikes'
+          element={ <Hikes /> }
         />
 
       </Routes>
