@@ -18,8 +18,15 @@ import './App.css';
 function App() {
 
   // STATE
+  const [trails, setTrails] = useState([])
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState({})
+
+  // Grab trails from database
+  async function getIndexRoute() {
+    const trailData = await axios.get("http://localhost:5001/trail")
+    setTrails(trailData.data)
+  };
 
   // Function to grab token from active user
   async function getUser(){
@@ -28,8 +35,7 @@ function App() {
         'Authorization': localStorage.getItem('token')
       }
     };
-
-    // grab user data from database
+    // Grab user data from database
     const userData = await axios.get("http://localhost:5001/user", config)
     console.log(userData.data)
     setUser(userData.data)
@@ -44,6 +50,7 @@ function App() {
     }
   }, [])
 
+  // Handle submit function for login and signup forms
   const handleSubmit = async (e, formData) => {
     e.preventDefault()
     const res = await axios.post(`http://localhost:5001/user/${formData.form}`, {
