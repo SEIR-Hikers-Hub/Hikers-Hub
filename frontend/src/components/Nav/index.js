@@ -7,15 +7,19 @@ export default function Nav() {
 
     return (
 
-        <nav>
-            <Link to="/"><h1>Logo Here</h1></Link>
-            <ul>
-                
-                <li className="navLink"><h2>Search</h2></li>
-                <li className="navLink"><Link to="/login">Log In</Link></li>
-                <li className="navLink"><Link to="/signup">Sign Up</Link></li>
-                
-            </ul>
+        <nav classname="navbar navbar-expand-lg bg-light">
+            <div classname="container-fluid">
+                <Link to="/"><h1 classname="navbar-brand">Logo Here</h1></Link>
+                <div classname="collapse navbar-collapse" id="navbarNav">
+                    <ul classname="navbar-nav">
+                        
+                        <li className="nav-item"><h2>Search</h2></li>
+                        <li className="nav-item"><Link classname="nav-link" to="/login">Log In</Link></li>
+                        <li className="nav-item"><Link classname="nav-link" to="/signup">Sign Up</Link></li>
+                        
+                    </ul>
+                </div>
+            </div>
         </nav>
     )
 };
