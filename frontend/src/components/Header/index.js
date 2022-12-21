@@ -25,6 +25,7 @@ export default function Header() {
                 <Nav className="me-auto">
                     <Nav.Link href="/login">Log In</Nav.Link>
                     <Nav.Link href="/signup">Sign Up</Nav.Link>
+                    <Nav.Link href="/addtrail">Add Trail</Nav.Link>
                 </Nav>
                 <Form className="d-flex">
                     <Form.Control
