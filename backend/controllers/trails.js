@@ -4,6 +4,23 @@
 const db = require('../models');
 const express = require('express');
 const router = express.Router();
+const jwt = require('jwt-simple')
+const config = require('../config/config')
+
+function isAuthenticated(req, res, next) {
+	if (req.headers.authorization) {
+		const token = req.headers.authorization
+		const decoded = jwt.decode(token, config.jwtSecret)
+		const foundUser = db.User.findById(decoded.id)
+		if (foundUser.admin) {
+			next()
+		} else {
+			res.sendStatus(401)
+		}
+	}
+}
+
+
 
 //index route
 router.get('/', async (req, res) => {
@@ -12,7 +29,7 @@ router.get('/', async (req, res) => {
 });
 
 // Create Route
-router.post('/', async (req, res) => {
+router.post('/', isAuthenticated, async (req, res) => {
 	const createdTrail = await db.Trail.create(req.body);
 	res.json(createdTrail);
 });
@@ -24,13 +41,13 @@ router.get('/:id', async (req, res) => {
 });
 
 // Delete Route
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', isAuthenticated, async (req, res) => {
 	await db.Trail.findByIdAndDelete(req.params.id);
 	res.json({ status: 200 });
 });
 
 // Update Route
-router.put('/:id', async (req, res) => {
+router.put('/:id', isAuthenticated, async (req, res) => {
 	const updatedTrail = await db.Trail.findByIdAndUpdate(
 		req.params.id,
 		req.body,
@@ -42,12 +59,12 @@ router.put('/:id', async (req, res) => {
 // // Create Review Route
 router.put('/:id/review', async (req, res) => {
 	const trail = await db.Trail.findByIdAndUpdate(
-	   req.params.id,
-	   { $push: { reviews: req.body } },
-	   { new: true } 
-   ) 
-   res.json(trail)
-   
+		req.params.id,
+		{ $push: { reviews: req.body } },
+		{ new: true }
+	)
+	res.json(trail)
+
 });
 
 module.exports = router;
