@@ -12,6 +12,7 @@ const db = require("./models")
 // access controllers
 const userCtrl = require("./controllers/users")
 const trailCtrl = require("./controllers/trails")
+const reviewCtrl = require("./controllers/reviews")
 
 
 
@@ -29,6 +30,7 @@ app.use(passport.initialize())
 // Use controllers for all other routes
 app.use('/trail', trailCtrl)
 app.use('/user', userCtrl)
+app.use('/review', reviewCtrl);
 
 // +-+-+-+-+-+-+-+-+
 // |L|I|S|T|E|N|E|R|
