@@ -62,6 +62,11 @@ function App() {
     setIsLoggedIn(true)
   };
 
+  const handleLogOut = () => {
+    localStorage.clear()
+    setIsLoggedIn(false)
+  };
+
   return (
     <div className="App">
       <Header />
