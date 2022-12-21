@@ -17,7 +17,7 @@ export default function Header() {
 
         <Navbar className="navbar" variant="light" fixed="top" expand="lg">
             <Container>
-                <Navbar.Brand className="nav-logo" href="/">Logo</Navbar.Brand>
+                <Link to='/'><Navbar.Brand className="nav-logo">Logo</Navbar.Brand></Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
