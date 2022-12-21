@@ -10,9 +10,11 @@ const trailSchema = new Schema(
         location: { type: String, required: true },
         difficulty: { type: String, enum: ['Beginner', 'Intermediate', 'Advanced'], required: true },
         description: { type: String },
-        terrain: { type: String },
+        terrain: { type: String, enum: ['hill', 'desert', 'forest', 'canyon'] },
+        activity: { type: String, enum: ['hiking', 'backpacking', 'mountain-biking', 'offroading'], required: true },
+        waterfalls: { type: String, enum: ['yes', 'no'], default: 'no' },
         length: { type: Number, required: true },
-        image: { type: String, default: "https://www.hopenetwichita.org/wp-content/uploads/2020/08/NO-IMAGE-AVAILABLE-3-768x768.png" },
+        image: { type: String },
         reviews: [reviewSchema]
     }
 )
