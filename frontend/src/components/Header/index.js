@@ -17,7 +17,7 @@ export default function Header() {
 
         <Navbar className="navbar" variant="light" fixed="top" expand="lg">
             <Container>
-                <Navbar.Brand className="nav-logo" href="#home">Logo</Navbar.Brand>
+                <Navbar.Brand className="nav-logo" href="/">Logo</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
@@ -38,20 +38,3 @@ export default function Header() {
         </Navbar>
     );
 };
-
-//         <nav classname="navbar navbar-expand-lg bg-light">
-//             <div classname="container-fluid">
-//                 <Link to="/"><h1 classname="navbar-brand">Logo Here</h1></Link>
-//                 <div classname="collapse navbar-collapse" id="navbarNav">
-//                     <ul classname="navbar-nav">
-                        
-//                         <li className="nav-item"><h2>Search</h2></li>
-//                         <li className="nav-item"><Link classname="nav-link" to="/login">Log In</Link></li>
-//                         <li className="nav-item"><Link classname="nav-link" to="/signup">Sign Up</Link></li>
-                        
-//                     </ul>
-//                 </div>
-//             </div>
-//         </nav>
-//     )
-// };
