@@ -1,7 +1,7 @@
 
 // DEPENDENCIES
 import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 // PAGES
@@ -19,6 +19,30 @@ function App() {
 
   // STATE
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [user, setUser] = useState({})
+
+  // Function to grab token from active user
+  async function getUser(){
+    const config = {
+      headers:{
+        'Authorization': localStorage.getItem('token')
+      }
+    };
+
+    // grab user data from database
+    const userData = await axios.get("http://localhost:5001/user", config)
+    console.log(userData.data)
+    setUser(userData.data)
+  };
+
+  // API REQUEST ON COMPONENT MOUNT
+  useEffect(() => {
+    getIndexRoute()
+    if(localStorage.token){
+      getUser()
+      setIsLoggedIn(true)
+    }
+  }, [])
 
   const handleSubmit = async (e, formData) => {
     e.preventDefault()
