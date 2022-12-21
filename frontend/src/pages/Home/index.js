@@ -17,7 +17,7 @@ export default function Home() {
 
             <h1>Welcome to Hikers Hub!</h1>
             <Card>
-                <a href="/state/:california">
+                <a href="/state/:">
                     <Card.Img variant="top" src={ca_hike} />
                     <Card.Body>
                     <Card.Text>

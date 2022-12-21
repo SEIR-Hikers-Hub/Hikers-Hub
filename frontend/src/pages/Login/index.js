@@ -43,8 +43,9 @@ export default function Login({ handleSubmit }){
             type='submit' 
             onClick={(e) => handleSubmit(e, formState)}
            >
-            Sign Up
+            Login
           </button>
+          
         </form>
       </div>
     )

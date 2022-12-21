@@ -1,6 +1,8 @@
 
 // DEPENDENCIES
 import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
 
 // PAGES
 import Home from './pages/Home';
@@ -15,6 +17,19 @@ import './App.css';
 
 function App() {
 
+  // STATE
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  const handleSubmit = async (e, formData) => {
+    e.preventDefault()
+    const res = await axios.post(`http://localhost:5001/user/${formData.form}`, {
+      username: formData.username,
+      password: formData.password
+    })
+    console.log(res.data)
+    localStorage.token = res.data.token
+    setIsLoggedIn(true)
+  };
 
   return (
     <div className="App">
@@ -29,12 +44,12 @@ function App() {
 
         <Route
           path='/login'
-          element={ <Login /> }
+          element={ <Login handleSubmit={handleSubmit} /> }
         />
 
         <Route
           path='/signup'
-          element={ <SignUp /> }
+          element={ <SignUp handleSubmit={handleSubmit} /> }
         />
 
         <Route
