@@ -1,6 +1,7 @@
 
 import { loginToAccount } from '../../utils/api';
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
+import { useNavigate } from "react-router-dom";
 //STYLES
 import './styles.css'
 
@@ -11,6 +12,7 @@ export default function Login(props){
         form: 'login'
     })
     const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const navigate = useNavigate()
 
     function handleChange(event){
         setFormData({...formData, [event.target.id]: event.target.value})
@@ -25,6 +27,13 @@ export default function Login(props){
             props.setLogInStatus(true)
         })
   };
+
+  // // redirect to home page if logged in
+  useEffect(() => {
+    if (props.setIsLoggedIn) {
+        navigate('/')
+    }
+}, [props.setIsLoggedIn])
 
     return (
       <div>
