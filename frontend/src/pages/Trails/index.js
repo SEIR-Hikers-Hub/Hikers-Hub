@@ -2,7 +2,7 @@
 // STYLES
 import './styles.css';
 
-export default function Hikes() {
+export default function Trails() {
     return (
         <main className="center-item">
             

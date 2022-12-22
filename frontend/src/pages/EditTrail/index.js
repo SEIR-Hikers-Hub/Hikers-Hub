@@ -1,34 +1,26 @@
 
 
-import axios from 'axios';
+
 import { useState } from 'react'
 //STYLES
 import './styles.css'
 
-function AddTrail(){
+function EditTrail(){
     
     // STATE
     const [formState, setFormState] = useState([])
 
 
-    const handleSubmit = (event) => {
-        // stops the page from reloading on submit
-        event.preventDefault();
-        // axios put request
-        axios.post(`http://localhost:5001/trail`, formState)
-        
-    };
-
     function handleChange(event){
         setFormState({...formState, [event.target.id]: event.target.value})
-    };
+    }
 
     return (
 
       <div>
-        <h2>Add a Trail</h2>
+        <h2>Edit a Trail</h2>
 
-        <form onSubmit={handleSubmit}>
+        <form>
 
         <div className="input">
             <label htmlFor="name">Name:</label>
@@ -55,7 +47,7 @@ function AddTrail(){
         <div className="input">
             <label htmlFor="location">location:</label>
             <input 
-                type="text"
+                type="number"
                 id="location" 
                 onChange={handleChange}
                 value={formState.location} 
@@ -75,7 +67,7 @@ function AddTrail(){
         <div className="input">
             <label htmlFor="description">description:</label>
             <input 
-                type="text" 
+                type="number" 
                 id="description" 
                 onChange={handleChange}
                 value={formState.description} 
@@ -86,7 +78,7 @@ function AddTrail(){
         <div className="input">
             <label htmlFor="terrain">terrain:</label>
             <input 
-                type="text" 
+                type="number" 
                 id="terrain" 
                 onChange={handleChange}
                 value={formState.terrain} 
@@ -118,7 +110,7 @@ function AddTrail(){
         <div className="input">
             <label htmlFor="distance">distance:</label>
             <input 
-                type="number"
+                type="text"
                 id="distance" 
                 onChange={handleChange}
                 value={formState.distance} 
@@ -129,7 +121,7 @@ function AddTrail(){
         <div className="input">
             <label htmlFor="image">image:</label>
             <input 
-                type="text"
+                type="number"
                 id="image" 
                 onChange={handleChange}
                 value={formState.image} 
@@ -143,4 +135,4 @@ function AddTrail(){
     );
 };
 
-export default AddTrail
+export default EditTrail

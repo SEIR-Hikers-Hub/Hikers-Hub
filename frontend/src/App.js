@@ -9,7 +9,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import AddTrail from './pages/AddTrail';
-import Hikes from './pages/Hikes';
+import Trails from './pages/Trails';
 // COMPONENTS
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -51,17 +51,6 @@ function App() {
     }
   }, [])
 
-  // Handle submit function for login and signup forms
-  const handleSubmit = async (e, formData) => {
-    e.preventDefault()
-    const res = await axios.post(`http://localhost:5001/user/${formData.form}`, {
-      username: formData.username,
-      password: formData.password
-    })
-    console.log(res.data)
-    localStorage.token = res.data.token
-    setIsLoggedIn(true)
-  };
 
   const handleLogOut = () => {
     localStorage.clear()
@@ -81,22 +70,22 @@ function App() {
 
         <Route
           path='/login'
-          element={ <Login handleSubmit={handleSubmit} /> }
+          element={ <Login /> }
         />
 
         <Route
           path='/signup'
-          element={ <SignUp handleSubmit={handleSubmit} /> }
+          element={ <SignUp /> }
         />
 
         <Route
           path='/addtrail'
-          element={ <AddTrail handleSubmit={handleSubmit} /> }
+          element={ <AddTrail /> }
         />
 
         <Route
           path='/hikes'
-          element={ <Hikes /> }
+          element={ <Trails /> }
         />
 
       </Routes>
