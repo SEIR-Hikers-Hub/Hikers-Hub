@@ -37,17 +37,19 @@ export default function Login(props){
                 type='text' 
                 id='username' 
                 onChange={handleChange} 
-                value={formData.username} 
+                value={formData.username}
+                required
             />
           </div>
 
           <div>
             <label htmlFor='password'>Password</label>
             <input 
-                type='text' 
+                type='password' 
                 id='password' 
                 onChange={handleChange} 
                 value={formData.password}
+                required
             />
           </div>
           <button 

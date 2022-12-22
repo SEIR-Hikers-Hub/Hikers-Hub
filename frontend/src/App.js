@@ -22,7 +22,7 @@ function App() {
   const [trails, setTrails] = useState([])
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState({})
-
+  
   // Grab trails from database
   async function getIndexRoute() {
     const trailData = await axios.get("http://localhost:5001/trail")
@@ -37,8 +37,9 @@ function App() {
       }
     };
     // Grab user data from database
-    const userData = await axios.get(`http://localhost:5001/user/` + userData._id, config)
-    console.log(userData.data)
+    const userData = await axios.get("http://localhost:5001/user", config)
+    // console.log(userData.data)
+    console.log('working')
     setUser(userData.data)
   };
 
@@ -51,6 +52,14 @@ function App() {
       console.log('logged in!')
     }
   }, [])
+
+
+    // // redirect to home page if logged in
+    // useEffect(() => {
+    //     if (props.isLoggedIn) {
+    //         navigate('/')
+    //     }
+    // }, [props.isLoggedIn])
 
 
   const handleLogOut = () => {
@@ -76,7 +85,7 @@ function App() {
 
         <Route
           path='/signup'
-          element={ <SignUp /> }
+          element={ <SignUp setIsLoggedIn={setIsLoggedIn} /> }
         />
 
         <Route

@@ -1,16 +1,21 @@
 
 
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
 import { createUser } from '../../utils/api';
+
+import { useNavigate } from "react-router-dom";
 
 //STYLES
 import './styles.css'
 
-function SignUp() {
+
+
+function SignUp(props) {
   const [formData, setFormData] = useState({
     username: '',
     password: ''
   })
+  const navigate = useNavigate()
 
   function handleChange(event) {
     setFormData({ ...formData, [event.target.id]: event.target.value })
@@ -22,11 +27,16 @@ function SignUp() {
     createUser(formData)
       .then((data) => {
         localStorage.token = data.token
-        props.setLogInStatus(true)
+        props.setIsLoggedIn(true)
       })
   }
 
-
+// // redirect to home page if logged in
+    useEffect(() => {
+        if (props.setIsLoggedIn) {
+            navigate('/')
+        }
+    }, [props.setIsLoggedIn])
 
   return (
     <div>

@@ -1,6 +1,5 @@
 //packages
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 //pages
 
@@ -15,15 +14,6 @@ import Card from 'react-bootstrap/Card';
 import './styles.css';
 
 export default function Home() {
-    const navigate = useNavigate()
-
-    // redirect to home page if logged in
-    useEffect(() => {
-        if (props.isLoggedIn) {
-            navigate('/')
-        }
-    }, [props.isLoggedIn])
-
     return (
         <main className="center-item">
 
