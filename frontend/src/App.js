@@ -62,14 +62,9 @@ function App() {
     // }, [props.isLoggedIn])
 
 
-  const handleLogOut = () => {
-    localStorage.clear()
-    setIsLoggedIn(false)
-  };
-
   return (
     <div className="App">
-      <Header setIsLoggedIn={setIsLoggedIn} />
+      <Header setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
       
       <Routes>
 
@@ -80,12 +75,12 @@ function App() {
 
         <Route
           path='/login'
-          element={ <Login /> }
+          element={ <Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} /> }
         />
 
         <Route
           path='/signup'
-          element={ <SignUp setIsLoggedIn={setIsLoggedIn} /> }
+          element={ <SignUp setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} /> }
         />
 
         <Route
