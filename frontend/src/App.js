@@ -9,7 +9,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import AddTrail from './pages/AddTrail';
-import Trails from './pages/Trails';
+import Hikes from './pages/Hikes';
 // COMPONENTS
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -85,7 +85,7 @@ function App() {
 
         <Route
           path='/hikes'
-          element={ <Trails /> }
+          element={ <Hikes /> }
         />
 
       </Routes>
