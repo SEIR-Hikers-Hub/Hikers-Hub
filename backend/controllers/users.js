@@ -104,7 +104,7 @@ router.get('/', async (req, res) => {
 	const token = req.headers.authorization
     const decode = jwt.decode(token, config.jwtSecret)
 	const foundUser = await db.User.findById(decode.id)
-	console.log(decode.id)
+	// console.log(decode.id)
 	res.json(foundUser)
 	// const foundUser = await User.findById(req.params.id)
 	// if (foundUser) {

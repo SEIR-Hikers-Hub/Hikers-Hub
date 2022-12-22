@@ -33,10 +33,10 @@ function SignUp(props) {
 
 // // redirect to home page if logged in
     useEffect(() => {
-        if (props.setIsLoggedIn) {
+        if (props.isLoggedIn) {
             navigate('/')
         }
-    }, [props.setIsLoggedIn])
+    }, [props.isLoggedIn])
 
   return (
     <div>

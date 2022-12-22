@@ -15,37 +15,31 @@ import './style.css';
 
 export default function Header(props) {
 
- // state declaration: build JSX array of NavBar items
- const initialState = [
-    <div className='nav-item' key='1'>Theme</div>,
+    // state declaration: build JSX array of NavBar items
+    const initialState = []
+    const [navItems, setNavItems] = useState(initialState)
 
-    <div className='nav-item' key='2'>
-        <Link to='/'>
-            <img alt='blogr_logo' src='blogr_logo.png' />
-            <h1>logr</h1>
-        </Link>
-    </div>
-]
-const [navItems, setNavItems] = useState(initialState)
-
-// add NavBar items to JSX array depending on App login state
-useEffect(() => {
-    if (props.isLoggedIn) {
-        setNavItems(initialState.concat(
-            <div className="nav-item" key='3'>
-                <button onClick={() => { props.setLogInStatus(false) }}>Log Out</button>
-            </div>
-        ))
-    } else {
-        setNavItems(initialState.concat([
-            <div className="nav-item" key='3'>
-                <Link to='/'>
-                    Log In
-                </Link>
-            </div>
-        ]))
-    }
-}, [props.isLoggedIn])
+    // add NavBar items to JSX array depending on App login state
+    useEffect(() => {
+        if (props.isLoggedIn) {
+            setNavItems(initialState.concat(
+                <Nav className="me-auto" key='2'>
+                    <Button onClick={() => {
+                        props.setIsLoggedIn(false)
+                        localStorage.clear()
+                        console.log(localStorage.token)
+                    }}>Log Out</Button>
+                </Nav>
+            ))
+        } else {
+            setNavItems(initialState.concat([
+                <Nav className="me-auto" key='2'>
+                    <Nav.Link className="nav-item" href="/login" key='2'>Log In</Nav.Link>
+                    <Nav.Link className="nav-item" href="/signup" key='3'>Sign Up</Nav.Link>
+                </Nav>
+            ]))
+        }
+    }, [props.isLoggedIn])
 
     return (
 
@@ -54,20 +48,16 @@ useEffect(() => {
                 <Link to='/'><Navbar.Brand className="nav-logo"> Logo </Navbar.Brand></Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto">
-                    <Nav.Link href="/addtrail">Add Trail</Nav.Link>
-                    <Nav.Link href="/login">Log In</Nav.Link>
-                    <Nav.Link href="/signup">Sign Up</Nav.Link>
-                </Nav>
-                <Form className="d-flex">
-                    <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                    />
-                    <Button variant="outline-success">Search</Button>
-                </Form>
+                    {navItems}
+                    <Form className="d-flex">
+                        <Form.Control
+                            type="search"
+                            placeholder="Search"
+                            className="me-2"
+                            aria-label="Search"
+                        />
+                        <Button variant="outline-success">Search</Button>
+                    </Form>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
