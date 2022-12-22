@@ -21,11 +21,28 @@ function isAuthenticated(req, res, next) {
 }
 
 
-
 //index route
 router.get('/', async (req, res) => {
 	const allTrails = await db.Trail.find({});
 	res.json(allTrails);
+});
+
+//index route for CA hikes
+router.get('/ca', async (req, res) => {
+	const caTrails = await db.Trail.find({ "state": "CA" });
+	res.json(caTrails);
+});
+
+//index route for WA hikes
+router.get('/wa', async (req, res) => {
+	const waTrails = await db.Trail.find({ "state": "WA" });
+	res.json(waTrails);
+});
+
+//index route for OR hikes
+router.get('/or', async (req, res) => {
+	const orTrails = await db.Trail.find({ "state": "OR" });
+	res.json(orTrails);
 });
 
 // Create Route
