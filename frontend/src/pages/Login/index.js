@@ -1,19 +1,30 @@
 
-
+import { loginToAccount } from '../../utils/api';
 import { useState } from 'react'
 //STYLES
 import './styles.css'
 
-export default function Login({ handleSubmit }){
-    const [formState, setFormState] = useState({
+export default function Login(props){
+    const [formData, setFormData] = useState({
         username: '', 
         password: '',
         form: 'login'
     })
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     function handleChange(event){
-        setFormState({...formState, [event.target.id]: event.target.value})
-    }
+        setFormData({...formData, [event.target.id]: event.target.value})
+    };
+
+    // Handle submit function for login and signup forms
+  function handleSubmit(e) {
+    e.preventDefault()
+    loginToAccount(formData)
+        .then((data) => {
+            localStorage.token = data.token
+            props.setLogInStatus(true)
+        })
+  };
 
     return (
       <div>
@@ -26,7 +37,7 @@ export default function Login({ handleSubmit }){
                 type='text' 
                 id='username' 
                 onChange={handleChange} 
-                value={formState.username} 
+                value={formData.username} 
             />
           </div>
 
@@ -36,12 +47,12 @@ export default function Login({ handleSubmit }){
                 type='text' 
                 id='password' 
                 onChange={handleChange} 
-                value={formState.password}
+                value={formData.password}
             />
           </div>
           <button 
             type='submit' 
-            onClick={(e) => handleSubmit(e, formState)}
+            onClick={(e) => handleSubmit(e, formData)}
            >
             Login
           </button>

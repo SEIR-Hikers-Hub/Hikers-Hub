@@ -37,7 +37,7 @@ function App() {
       }
     };
     // Grab user data from database
-    const userData = await axios.get("http://localhost:5001/user", config)
+    const userData = await axios.get(`http://localhost:5001/user/` + userData._id, config)
     console.log(userData.data)
     setUser(userData.data)
   };
@@ -48,6 +48,7 @@ function App() {
     if(localStorage.token){
       getUser()
       setIsLoggedIn(true)
+      console.log('logged in!')
     }
   }, [])
 
