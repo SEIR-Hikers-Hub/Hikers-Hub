@@ -1,19 +1,25 @@
 
 
 import { useState } from 'react'
+import { createUser } from '../../utils/api';
 //STYLES
 import './styles.css'
 
-function SignUp({ handleSubmit }){
-    const [formState, setFormState] = useState({
+function SignUp(){
+    const [formData, setFormData] = useState({
         username: '', 
-        password: '',
-        form: 'signup'
+        password: ''
     })
 
     function handleChange(event){
-        setFormState({...formState, [event.target.id]: event.target.value})
+        setFormData({...formData, [event.target.id]: event.target.value})
     }
+
+    // Handle submit function for login and signup forms
+    function handleSubmit(e) {
+        e.preventDefault()
+        createUser(formData)
+    };
 
     return (
       <div>
@@ -26,7 +32,7 @@ function SignUp({ handleSubmit }){
                 type='text' 
                 id='username' 
                 onChange={handleChange} 
-                value={formState.username} 
+                value={formData.username} 
             />
           </div>
 
@@ -36,15 +42,10 @@ function SignUp({ handleSubmit }){
                 type='text' 
                 id='password' 
                 onChange={handleChange} 
-                value={formState.password}
+                value={formData.password}
             />
           </div>
-          <button 
-            type='submit' 
-            onClick={(e) => handleSubmit(e, formState)}
-           >
-            Sign Up
-          </button>
+          <button type='submit' onClick={handleSubmit}>Sign Up</button>
         </form>
       </div>
     )
