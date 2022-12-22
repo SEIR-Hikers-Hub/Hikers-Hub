@@ -100,13 +100,18 @@ router.post('/login', async (req, res) => {
 
 
 // GET USER DATA (if user is logged in)
-router.get('/:id', async (req, res) => {
-	const foundUser = await User.findById(req.params.id)
-	if (foundUser) {
-		res.json(foundUser)
-	} else {
-		res.sendStatus(404)
-	}
+router.get('/', async (req, res) => {
+	const token = req.headers.authorization
+    const decode = jwt.decode(token, config.jwtSecret)
+	const foundUser = await db.User.findById(decode.id)
+	console.log(decode.id)
+	res.json(foundUser)
+	// const foundUser = await User.findById(req.params.id)
+	// if (foundUser) {
+	// 	res.json(foundUser)
+	// } else {
+	// 	res.sendStatus(404)
+	// }
 })
 
 
