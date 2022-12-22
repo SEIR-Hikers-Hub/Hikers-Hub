@@ -69,7 +69,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header setIsLoggedIn={setIsLoggedIn} />
       
       <Routes>
 
