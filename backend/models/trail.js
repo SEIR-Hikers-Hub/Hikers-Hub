@@ -10,11 +10,11 @@ const trailSchema = new Schema(
         location: { type: String, required: true },
         difficulty: { type: String, enum: ['Beginner', 'Intermediate', 'Advanced'], required: true },
         description: { type: String },
-        terrain: { type: String, enum: ['hill', 'desert', 'forest', 'canyon'] },
+        terrain: { type: String, enum: ['hill', 'desert', 'forest', 'canyon', 'mountain', 'coast'] },
         activity: { type: String, enum: ['hiking', 'backpacking', 'mountain-biking', 'offroading'], required: true },
         waterfalls: { type: String, enum: ['yes', 'no'], default: 'no' },
-        length: { type: Number, required: true },
-        image: { type: String },
+        distance: { type: Number, required: true },
+        image: { type: String, default: '/assets/hikers_hub_logo.png' },
         reviews: [reviewSchema]
     }
 )
