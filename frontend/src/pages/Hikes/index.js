@@ -1,11 +1,13 @@
 
 
+
+// PACKAGES
 import { Link } from 'react-router-dom';
 // STYLES
 import './styles.css';
 
 
-export default function Hikes({trails}) {
+export default function Hikes({trails, getTrail}) {
 
 
     return (
@@ -17,11 +19,13 @@ export default function Hikes({trails}) {
 
                 return (
 
-                    <Link>
-                        <div key={i}>
-                        {trail.name}
-                        </div>
-                    </Link>
+                    <div key={i}>
+                        <Link 
+                            onClick={() => getTrail(trail._id)}
+                            to={`/trail/${trail._id}`}>
+                            {trail.name} 
+                        </Link>
+                    </div>
                 )
                 })}
             </div>

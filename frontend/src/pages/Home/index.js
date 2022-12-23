@@ -1,16 +1,16 @@
+
+
 //packages
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
-
+import { Link } from "react-router-dom";
+// BOOTSTRAP
+import Card from 'react-bootstrap/Card';
+// Images
 import ca_hike from '../../assets/ca_hike.jpg';
 import or_hike from '../../assets/or_hike.jpg';
 import wa_hike from '../../assets/wa_hike.jpg';
-
-// BOOTSTRAP
-import Card from 'react-bootstrap/Card';
 // STYLES
 import './styles.css';
-import axios from "axios";
 
 
 export default function Home({getTrails}) {
