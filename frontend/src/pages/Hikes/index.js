@@ -26,7 +26,6 @@ export default function Hikes({trails, getTrail}) {
                             {trail.name} 
                         </Link>
                     </div>
-
                 )
                 })}
             </div>
