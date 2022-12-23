@@ -23,11 +23,18 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState({})
   
+  
   // Grab trails from database
-  async function getIndexRoute() {
-    const trailData = await axios.get("http://localhost:5001/trail")
-    setTrails(trailData.data)
-  };
+  // async function getIndexRoute() {
+  //   const trailData = await axios.get("http://localhost:5001/trail")
+  //   setTrails(trailData.data)
+  // };
+
+  // function to grab trails by state
+  async function getTrails(region) {
+    const allTrails = await axios.get(`http://localhost:5001/trail/${region}`)
+    setTrails(allTrails.data)
+}
 
   // Function to grab token from active user
   async function getUser(){
@@ -45,7 +52,7 @@ function App() {
 
   // API REQUEST ON COMPONENT MOUNT
   useEffect(() => {
-    getIndexRoute()
+    // getIndexRoute()
     if(localStorage.token){
       getUser()
       setIsLoggedIn(true)
@@ -70,7 +77,7 @@ function App() {
 
         <Route
           path='/'
-          element={ <Home /> }
+          element={ <Home getTrails={getTrails} /> }
         />
 
         <Route
@@ -90,7 +97,7 @@ function App() {
 
         <Route
           path='/hikes'
-          element={ <Hikes /> }
+          element={ <Hikes trails={trails} /> }
         />
 
       </Routes>

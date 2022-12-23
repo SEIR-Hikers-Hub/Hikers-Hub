@@ -1,8 +1,6 @@
 //packages
 import { useState, useEffect } from "react";
-
-//pages
-
+import { useNavigate, Link } from "react-router-dom";
 
 import ca_hike from '../../assets/ca_hike.jpg';
 import or_hike from '../../assets/or_hike.jpg';
@@ -12,15 +10,19 @@ import wa_hike from '../../assets/wa_hike.jpg';
 import Card from 'react-bootstrap/Card';
 // STYLES
 import './styles.css';
+import axios from "axios";
 
-export default function Home() {
+
+export default function Home({getTrails}) {
+    
+    
     return (
         <main className="center-item">
 
 
             <h1>Welcome to Hikers Hub!</h1>
             <Card>
-                <a href="/state/:">
+                <Link onClick={() => getTrails('CA')} to='/hikes' >
                     <Card.Img variant="top" src={ca_hike} />
                     <Card.Body>
                         <Card.Text>
@@ -28,12 +30,12 @@ export default function Home() {
                             bulk of the card's content.
                         </Card.Text>
                     </Card.Body>
-                </a>
+                </Link>
             </Card>
             <br />
 
             <Card>
-                <a href="/state/:washington">
+                <Link onClick={() => getTrails('WA')} to='/hikes' >
                     <Card.Img variant="top" src={wa_hike} />
                     <Card.Body>
                         <Card.Text>
@@ -41,12 +43,13 @@ export default function Home() {
                             bulk of the card's content.
                         </Card.Text>
                     </Card.Body>
-                </a>
+                </Link>
             </Card>
 
             <br />
 
             <Card>
+            <Link onClick={() => getTrails('OR')} to='/hikes' >
                 <Card.Img variant="top" src={or_hike} />
                 <Card.Body>
                     <Card.Text>
@@ -54,6 +57,7 @@ export default function Home() {
                         bulk of the card's content.
                     </Card.Text>
                 </Card.Body>
+                </Link>
             </Card>
 
         </main>
