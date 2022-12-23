@@ -1,4 +1,6 @@
 
+
+import { Link } from 'react-router-dom';
 // STYLES
 import './styles.css';
 
@@ -12,10 +14,14 @@ export default function Hikes({trails}) {
             <h1>This is the Hike page.</h1>
             <div className="trails">
                 {trails && trails.map((trail, i) => {
+
                 return (
-                    <div key={i}>
-                    {trail.name}
-                    </div>
+
+                    <Link>
+                        <div key={i}>
+                        {trail.name}
+                        </div>
+                    </Link>
                 )
                 })}
             </div>
