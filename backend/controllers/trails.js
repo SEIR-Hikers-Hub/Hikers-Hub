@@ -28,19 +28,20 @@ router.get('/', async (req, res) => {
 });
 
 //index route for CA hikes
-router.get('/ca', async (req, res) => {
+router.get('/CA', async (req, res) => {
 	const caTrails = await db.Trail.find({ "state": "CA" });
+	console.log('works')
 	res.json(caTrails);
 });
 
 //index route for WA hikes
-router.get('/wa', async (req, res) => {
+router.get('/WA', async (req, res) => {
 	const waTrails = await db.Trail.find({ "state": "WA" });
 	res.json(waTrails);
 });
 
 //index route for OR hikes
-router.get('/or', async (req, res) => {
+router.get('/OR', async (req, res) => {
 	const orTrails = await db.Trail.find({ "state": "OR" });
 	res.json(orTrails);
 });
