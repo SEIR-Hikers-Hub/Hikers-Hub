@@ -1,12 +1,15 @@
 
 
-import { useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { createUser } from '../../utils/api';
 
 import { useNavigate } from "react-router-dom";
 
 //STYLES
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import './styles.css'
+
 
 
 
@@ -31,39 +34,39 @@ function SignUp(props) {
       })
   }
 
-// // redirect to home page if logged in
-    useEffect(() => {
-        if (props.isLoggedIn) {
-            navigate('/')
-        }
-    }, [props.isLoggedIn])
+  // // redirect to home page if logged in
+  useEffect(() => {
+    if (props.isLoggedIn) {
+      navigate('/')
+    }
+  }, [props.isLoggedIn])
 
   return (
     <div>
       <h2>Sign Up</h2>
+      <div class="row row-cols-sm-2 row-cols-md-4 mx-auto login">
+        <Form className="mb-3 mx-auto">
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Username</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" id='username'
+              onChange={handleChange}
+              value={formData.username}
+              required />
+          </Form.Group>
 
-      <form>
-        <div>
-          <label htmlFor='username'>Username</label>
-          <input
-            type='text'
-            id='username'
-            onChange={handleChange}
-            value={formData.username} required
-          />
-        </div>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" id='password'
+              onChange={handleChange}
+              value={formData.password}
+              required />
+          </Form.Group>
 
-        <div>
-          <label htmlFor='password'>Password</label>
-          <input
-            type='text'
-            id='password'
-            onChange={handleChange}
-            value={formData.password} required
-          />
-        </div>
-        <button type='submit' onClick={handleSubmit}>Sign Up</button>
-      </form>
+          <Button variant="primary" type="submit" onClick={handleSubmit}>
+            Sign Up
+          </Button>
+        </Form>
+      </div>
     </div>
   )
 }

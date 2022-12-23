@@ -18,6 +18,7 @@ export default function ShowTrail({shownTrail}) {
             <h2>Waterfalls? {shownTrail.waterfalls}</h2>
             <h2>Total distance(In miles): {shownTrail.distance}</h2>
             <h2>{shownTrail.reviews}</h2>
+
         </main>
     )
 };
