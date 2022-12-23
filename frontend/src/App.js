@@ -15,6 +15,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 // STYLES
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
