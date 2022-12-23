@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import AddTrail from './pages/AddTrail';
 import Hikes from './pages/Hikes';
+import ShowTrail from './pages/ShowTrail';
 // COMPONENTS
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -22,19 +23,19 @@ function App() {
   const [trails, setTrails] = useState([])
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState({})
-  
-  
-  // Grab trails from database
-  // async function getIndexRoute() {
-  //   const trailData = await axios.get("http://localhost:5001/trail")
-  //   setTrails(trailData.data)
-  // };
+  const [shownTrail, setShownTrail] = useState({})
 
   // function to grab trails by state
   async function getTrails(region) {
     const allTrails = await axios.get(`http://localhost:5001/trail/${region}`)
     setTrails(allTrails.data)
-}
+  }
+
+  // function to grab trails by state
+  async function getTrail(id) {
+    const shownTrailData = await axios.get(`http://localhost:5001/trail/${id}`)
+    setShownTrail(shownTrailData.data)
+  }
 
   // Function to grab token from active user
   async function getUser(){
@@ -45,28 +46,17 @@ function App() {
     };
     // Grab user data from database
     const userData = await axios.get("http://localhost:5001/user", config)
-    // console.log(userData.data)
-    console.log('working')
     setUser(userData.data)
   };
 
   // API REQUEST ON COMPONENT MOUNT
   useEffect(() => {
-    // getIndexRoute()
     if(localStorage.token){
       getUser()
       setIsLoggedIn(true)
       console.log('logged in!')
     }
   }, [])
-
-
-    // // redirect to home page if logged in
-    // useEffect(() => {
-    //     if (props.isLoggedIn) {
-    //         navigate('/')
-    //     }
-    // }, [props.isLoggedIn])
 
 
   return (
@@ -97,7 +87,12 @@ function App() {
 
         <Route
           path='/hikes'
-          element={ <Hikes trails={trails} /> }
+          element={ <Hikes getTrail={getTrail} trails={trails} /> }
+        />
+
+        <Route
+          exact path='/trail/:id'
+          element={ <ShowTrail shownTrail={shownTrail} /> }
         />
 
       </Routes>
