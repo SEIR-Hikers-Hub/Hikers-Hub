@@ -30,7 +30,6 @@ router.get('/', async (req, res) => {
 //index route for CA hikes
 router.get('/CA', async (req, res) => {
 	const caTrails = await db.Trail.find({ "state": "CA" });
-	console.log('works')
 	res.json(caTrails);
 });
 
@@ -55,6 +54,7 @@ router.post('/', isAuthenticated, async (req, res) => {
 // Show Route
 router.get('/:id', async (req, res) => {
 	const trail = await db.Trail.findById(req.params.id);
+	console.log(trail._id)
 	res.json(trail);
 });
 
