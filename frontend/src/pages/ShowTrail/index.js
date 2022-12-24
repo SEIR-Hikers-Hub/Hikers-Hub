@@ -1,14 +1,4 @@
 
-<<<<<<< HEAD
-// STYLES
-import './styles.css';
-
-export default function Hikes() {
-    return (
-        <main className="center-item">
-            
-            <h1>Welcome to a Hike!</h1>
-=======
 
 // STYLES
 import './styles.css';
@@ -28,7 +18,7 @@ export default function ShowTrail({shownTrail}) {
             <h2>Waterfalls? {shownTrail.waterfalls}</h2>
             <h2>Total distance(In miles): {shownTrail.distance}</h2>
             <h2>{shownTrail.reviews}</h2>
->>>>>>> dev
+
         </main>
     )
 };

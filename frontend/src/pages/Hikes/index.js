@@ -1,9 +1,7 @@
 
 
-<<<<<<< HEAD
-=======
+
 // PACKAGES
->>>>>>> dev
 import { Link } from 'react-router-dom';
 // STYLES
 import './styles.css';
@@ -21,13 +19,6 @@ export default function Hikes({trails, getTrail}) {
 
                 return (
 
-<<<<<<< HEAD
-                    <Link>
-                        <div key={i}>
-                        {trail.name}
-                        </div>
-                    </Link>
-=======
                     <div key={i}>
                         <Link 
                             onClick={() => getTrail(trail._id)}
@@ -35,7 +26,7 @@ export default function Hikes({trails, getTrail}) {
                             {trail.name} 
                         </Link>
                     </div>
->>>>>>> dev
+
                 )
                 })}
             </div>
