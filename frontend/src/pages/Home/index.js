@@ -26,8 +26,7 @@ export default function Home({getTrails}) {
                     <Card.Img variant="top" src={ca_hike} />
                     <Card.Body>
                         <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
+                        From sandy beaches to snow-capped mountains, California has a hike for lovers of any terrain.
                         </Card.Text>
                     </Card.Body>
                 </Link>
@@ -39,8 +38,7 @@ export default function Home({getTrails}) {
                     <Card.Img variant="top" src={wa_hike} />
                     <Card.Body>
                         <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
+                        Here are some trails that will help you escape life in the city and connect your spirit with nature.
                         </Card.Text>
                     </Card.Body>
                 </Link>
@@ -53,8 +51,7 @@ export default function Home({getTrails}) {
                 <Card.Img variant="top" src={or_hike} />
                 <Card.Body>
                     <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
+                    Adventure your way through lush forests and maybe even encounter a world-renowned winery or two. 
                     </Card.Text>
                 </Card.Body>
                 </Link>
