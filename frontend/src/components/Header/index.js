@@ -45,7 +45,8 @@ export default function Header(props) {
 
         <Navbar className="navbar" variant="light" fixed="top" expand="lg">
             <Container>
-                <Link to='/'><Navbar.Brand className="nav-logo"> Logo </Navbar.Brand></Link>
+            
+                <Link to='/'><Navbar.Brand className="nav-logo"><img src="../../assets/hikers_hub_logo.png" height="100px"/></Navbar.Brand></Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     {navItems}
