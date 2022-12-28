@@ -48,7 +48,8 @@ function AddTrail() {
                     <Form.Group className="mb-3">
                         <Form.Label>Name:</Form.Label>
                         <Form.Control
-                            type="email"
+                            type="text"
+                            id="name"
                             placeholder="Trail Name"
                             onChange={handleChange}
                             value={formState.name}
@@ -93,7 +94,8 @@ function AddTrail() {
                     <Form.Group className="mb-3">
                         <Form.Label>Location:</Form.Label>
                         <Form.Control
-                            type="email"
+                            type="text"
+                            id="location"
                             placeholder="Nearest City"
                             onChange={handleChange}
                             value={formState.location} />
@@ -136,7 +138,8 @@ function AddTrail() {
                     <Form.Group className="mb-3">
                         <Form.Label>Description:</Form.Label>
                         <Form.Control
-                            type="email"
+                            type="text"
+                            id="description"
                             placeholder="Why do you love this trail?"
                             onChange={handleChange}
                             value={formState.description}
@@ -233,8 +236,8 @@ function AddTrail() {
                         <Form.Label>Distance:</Form.Label>
                         <Form.Control
                             type="number"
-                            placeholder="Miles"
                             id="distance"
+                            placeholder="Miles"
                             onChange={handleChange}
                             value={formState.distance}
                             required />
@@ -254,8 +257,8 @@ function AddTrail() {
                         <Form.Label>Image:</Form.Label>
                         <Form.Control
                             type="email"
-                            placeholder="Enter email"
                             id="image"
+                            placeholder="Enter email"
                             onChange={handleChange}
                             value={formState.image} />
                         <Form.Text className="text-muted">

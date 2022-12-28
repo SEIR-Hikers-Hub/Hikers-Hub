@@ -45,7 +45,8 @@ export default function Header(props) {
 
         <Navbar className="navbar" variant="light" fixed="top" expand="lg">
             <Container>
-                <Link to='/'><Navbar.Brand className="nav-logo"> Logo </Navbar.Brand></Link>
+                <Link to='/'><Navbar.Brand className="nav-logo">Logo</Navbar.Brand></Link>
+            
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     {navItems}
