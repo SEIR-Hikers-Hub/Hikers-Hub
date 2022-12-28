@@ -13,9 +13,9 @@ import wa_hike from '../../assets/wa_hike.jpg';
 import './styles.css';
 
 
-export default function Home({getTrails}) {
-    
-    
+export default function Home({ getTrails, region }) {
+
+    console.log(region);
     return (
         <main className="center-item">
 
@@ -26,36 +26,36 @@ export default function Home({getTrails}) {
                     <Card.Img variant="top" src={ca_hike} />
                     <Card.Body>
                         <Card.Text>
-                        From sandy beaches to snow-capped mountains, California has a hike for lovers of any terrain.
+                            From sandy beaches to snow-capped mountains, California has a hike for lovers of any terrain.
                         </Card.Text>
                     </Card.Body>
                 </Link>
             </Card>
             <br />
 
+            <Card>
+                <Link onClick={() => getTrails('OR')} to='/hikes' >
+                    <Card.Img variant="top" src={or_hike} />
+                    <Card.Body>
+                        <Card.Text>
+                            Adventure your way through lush forests and maybe even encounter a world-renowned winery or two.
+                        </Card.Text>
+                    </Card.Body>
+                </Link>
+            </Card>
+
+            <br />
             <Card>
                 <Link onClick={() => getTrails('WA')} to='/hikes' >
                     <Card.Img variant="top" src={wa_hike} />
                     <Card.Body>
                         <Card.Text>
-                        Here are some trails that will help you escape life in the city and connect your spirit with nature.
+                            Here are some trails that will help you escape life in the city and connect your spirit with nature.
                         </Card.Text>
                     </Card.Body>
                 </Link>
             </Card>
 
-            <br />
-
-            <Card>
-            <Link onClick={() => getTrails('OR')} to='/hikes' >
-                <Card.Img variant="top" src={or_hike} />
-                <Card.Body>
-                    <Card.Text>
-                    Adventure your way through lush forests and maybe even encounter a world-renowned winery or two. 
-                    </Card.Text>
-                </Card.Body>
-                </Link>
-            </Card>
 
         </main>
     )

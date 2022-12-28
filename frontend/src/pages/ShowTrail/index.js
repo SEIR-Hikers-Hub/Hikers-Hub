@@ -1,9 +1,21 @@
-
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 // STYLES
 import './styles.css';
+import axios from 'axios';
 
-export default function ShowTrail({shownTrail}) {
+
+export default function ShowTrail({ getTrails, shownTrail, region }) {
+
+    const [review, setReview] = useState({})
+
+    // function to grab trails by state
+    async function getReview(id) {
+        const showReview = await axios.get(`http://localhost:5001/trail/${id}`)
+        setReview(showReview.data)
+    }
+
 
     return (
         <main className="center-item">
@@ -17,8 +29,10 @@ export default function ShowTrail({shownTrail}) {
             <h3>Activity:</h3><p>{shownTrail.activity}</p>
             <h3>Waterfalls?:</h3><p>{shownTrail.waterfalls}</p>
             <h3>Total Distance:</h3><p>{shownTrail.distance} Miles</p>
-            <h3>{shownTrail.reviews}</h3>
+            {/* <h3>{getReview(shownTrail._id)}</h3> */}
+            <p>{shownTrail.review}</p>
 
+            <Link onClick={() => getTrails(region)} to='/hikes' >Return to {region} Trails</Link>
         </main>
     )
 };
