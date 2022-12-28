@@ -6,7 +6,7 @@ import './styles.css';
 import axios from 'axios';
 
 
-export default function ShowTrail({ getTrails, shownTrail, region }) {
+export default function ShowTrail({ getTrails, shownTrail, region, review }) {
 
     const [review, setReview] = useState({})
 
@@ -30,7 +30,7 @@ export default function ShowTrail({ getTrails, shownTrail, region }) {
             <h3>Waterfalls?:</h3><p>{shownTrail.waterfalls}</p>
             <h3>Total Distance:</h3><p>{shownTrail.distance} Miles</p>
             {/* <h3>{getReview(shownTrail._id)}</h3> */}
-            <p>{shownTrail.review}</p>
+            <p>{review}</p>
 
             <Link onClick={() => getTrails(region)} to='/hikes' >Return to {region} Trails</Link>
         </main>
