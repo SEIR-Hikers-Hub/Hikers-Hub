@@ -34,6 +34,18 @@ export default function Home({ getTrails, region }) {
             <br />
 
             <Card>
+                <Link onClick={() => getTrails('OR')} to='/hikes' >
+                    <Card.Img variant="top" src={or_hike} />
+                    <Card.Body>
+                        <Card.Text>
+                            Adventure your way through lush forests and maybe even encounter a world-renowned winery or two.
+                        </Card.Text>
+                    </Card.Body>
+                </Link>
+            </Card>
+
+            <br />
+            <Card>
                 <Link onClick={() => getTrails('WA')} to='/hikes' >
                     <Card.Img variant="top" src={wa_hike} />
                     <Card.Body>
@@ -44,18 +56,6 @@ export default function Home({ getTrails, region }) {
                 </Link>
             </Card>
 
-            <br />
-
-            <Card>
-                <Link onClick={() => getTrails('OR')} to='/hikes' >
-                    <Card.Img variant="top" src={or_hike} />
-                    <Card.Body>
-                        <Card.Text>
-                            Adventure your way through lush forests and maybe even encounter a world-renowned winery or two.
-                        </Card.Text>
-                    </Card.Body>
-                </Link>
-            </Card>
 
         </main>
     )

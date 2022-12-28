@@ -1,8 +1,8 @@
-
+import { Link } from 'react-router-dom';
 // STYLES
 import './styles.css';
 
-export default function ShowTrail({shownTrail}) {
+export default function ShowTrail({ getTrails, shownTrail, region }) {
 
     return (
         <main className="center-item">
@@ -18,6 +18,7 @@ export default function ShowTrail({shownTrail}) {
             <h3>Total Distance:</h3><p>{shownTrail.distance} Miles</p>
             <h3>{shownTrail.reviews}</h3>
 
+            <Link onClick={() => getTrails(region)} to='/hikes' >Return to {region} Trails</Link>
         </main>
     )
 };

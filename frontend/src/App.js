@@ -96,7 +96,7 @@ function App() {
 
         <Route
           exact path='/trail/:id'
-          element={<ShowTrail shownTrail={shownTrail} />}
+          element={<ShowTrail shownTrail={shownTrail} getTrails={getTrails} region={region}/>}
         />
 
       </Routes>
