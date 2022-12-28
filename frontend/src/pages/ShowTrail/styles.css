@@ -1,0 +1,10 @@
+img {
+    width: 100%;
+    margin-bottom: 2em;
+    height: 40vh;
+    object-fit: cover;
+}
+
+main {
+    margin: 0em 3em 0em 3em;
+}
