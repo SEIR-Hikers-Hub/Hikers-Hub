@@ -25,11 +25,14 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState({})
   const [shownTrail, setShownTrail] = useState({})
+  const [region, setRegion] = useState('')
+
 
   // function to grab trails by state
   async function getTrails(region) {
     const allTrails = await axios.get(`http://localhost:5001/trail/${region}`)
     setTrails(allTrails.data)
+    setRegion(region)
   }
 
   // function to grab trails by state
@@ -39,9 +42,9 @@ function App() {
   }
 
   // Function to grab token from active user
-  async function getUser(){
+  async function getUser() {
     const config = {
-      headers:{
+      headers: {
         'Authorization': localStorage.getItem('token')
       }
     };
@@ -52,7 +55,7 @@ function App() {
 
   // API REQUEST ON COMPONENT MOUNT
   useEffect(() => {
-    if(localStorage.token){
+    if (localStorage.token) {
       getUser()
       setIsLoggedIn(true)
       console.log('logged in!')
@@ -63,37 +66,37 @@ function App() {
   return (
     <div className="App">
       <Header setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
-      
+
       <Routes>
 
         <Route
           path='/'
-          element={ <Home getTrails={getTrails} /> }
+          element={<Home getTrails={getTrails} />}
         />
 
         <Route
           path='/login'
-          element={ <Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} /> }
+          element={<Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}
         />
 
         <Route
           path='/signup'
-          element={ <SignUp setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} /> }
+          element={<SignUp setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}
         />
 
         <Route
           path='/addtrail'
-          element={ <AddTrail /> }
+          element={<AddTrail />}
         />
 
         <Route
           path='/hikes'
-          element={ <Hikes getTrail={getTrail} trails={trails} /> }
+          element={<Hikes getTrail={getTrail} trails={trails} region={region} />}
         />
 
         <Route
           exact path='/trail/:id'
-          element={ <ShowTrail shownTrail={shownTrail} /> }
+          element={<ShowTrail shownTrail={shownTrail} />}
         />
 
       </Routes>
