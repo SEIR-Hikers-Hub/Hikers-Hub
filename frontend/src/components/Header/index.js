@@ -29,6 +29,7 @@ export default function Header(props) {
                         localStorage.clear()
                         console.log(localStorage.token)
                     }}>Log Out</Button>
+                    <Nav.Link className="nav-item" href="/addtrail">Add Trail</Nav.Link>
                 </Nav>
             ))
         } else {

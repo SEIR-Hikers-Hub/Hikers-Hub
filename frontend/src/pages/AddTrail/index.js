@@ -1,7 +1,8 @@
 
-
+import { createTrail } from '../../utils/api';
 import axios from 'axios';
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 //STYLES
 import './styles.css'
 import Button from 'react-bootstrap/Button';
@@ -12,18 +13,22 @@ import Form from 'react-bootstrap/Form';
 function AddTrail() {
 
     // STATE
-    const [formState, setFormState] = useState([])
+    const [formState, setFormState] = useState({})
+    const navigate = useNavigate()
 
 
     const handleSubmit = (event) => {
         // stops the page from reloading on submit
         event.preventDefault();
         // axios put request
-        axios.post(`http://localhost:5001/trail`, formState)
-
+        // axios.post(`http://localhost:5001/trail`, formState)
+        createTrail(formState);
+        navigate('/');
     };
 
     function handleChange(event) {
+        console.log(event.target.id)
+        console.log(event.target.value)
         setFormState({ ...formState, [event.target.id]: event.target.value })
     };
 
@@ -50,9 +55,10 @@ function AddTrail() {
                         <Form.Control
                             type="text"
                             id="name"
+                            name="name" 
                             placeholder="Trail Name"
                             onChange={handleChange}
-                            value={formState.name}
+                            value={formState.name || ''}
                             required />
                     </Form.Group>
 
@@ -96,9 +102,10 @@ function AddTrail() {
                         <Form.Control
                             type="text"
                             id="location"
+                            name="location" 
                             placeholder="Nearest City"
                             onChange={handleChange}
-                            value={formState.location} />
+                            value={formState.location || ''} />
                     </Form.Group>
 
 
@@ -139,10 +146,11 @@ function AddTrail() {
                         <Form.Label>Description:</Form.Label>
                         <Form.Control
                             type="text"
-                            id="description"
+                            id="description" 
+                            name="description" 
                             placeholder="Why do you love this trail?"
                             onChange={handleChange}
-                            value={formState.description}
+                            value={formState.description || ''}
                             required />
                     </Form.Group>
 
@@ -161,6 +169,7 @@ function AddTrail() {
                         <Form.Label>Terrain:</Form.Label>
                         <Form.Select
                             id="terrain"
+                            name="terrain"
                             onChange={handleChange}
                             value={formState.terrain} required>
                             {/* <option>Terrain</option> */}
@@ -187,6 +196,7 @@ function AddTrail() {
                         <Form.Label>Activity:</Form.Label>
                         <Form.Select
                             id="activity"
+                            name="activity"
                             onChange={handleChange}
                             value={formState.activity}>
                             {/* <option>Activity</option> */}
@@ -212,6 +222,7 @@ function AddTrail() {
                         <Form.Label>Waterfalls:</Form.Label>
                         <Form.Select
                             id="waterfalls"
+                            name="waterfalls"
                             onChange={handleChange}
                             value={formState.waterfalls}
                             required>
@@ -235,11 +246,12 @@ function AddTrail() {
                     <Form.Group className="mb-3">
                         <Form.Label>Distance:</Form.Label>
                         <Form.Control
-                            type="number"
-                            id="distance"
+                            type="number" 
+                            id="distance" 
+                            name="distance" 
                             placeholder="Miles"
                             onChange={handleChange}
-                            value={formState.distance}
+                            value={formState.distance || ''}
                             required />
                     </Form.Group>
 
@@ -256,11 +268,12 @@ function AddTrail() {
                     <Form.Group className="mb-3">
                         <Form.Label>Image:</Form.Label>
                         <Form.Control
-                            type="email"
+                            type="text"
                             id="image"
-                            placeholder="Enter email"
+                            name="image"
+                            placeholder="Enter image address"
                             onChange={handleChange}
-                            value={formState.image} />
+                            value={formState.image || ''} />
                         <Form.Text className="text-muted">
                             If you have a favorite image of this trail, provide a link to it here.
                         </Form.Text>
