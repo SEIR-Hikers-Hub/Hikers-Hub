@@ -13,6 +13,7 @@ import wa_hike from '../../assets/wa_hike.jpg';
 import './styles.css';
 
 
+
 export default function Home({ getTrails, region }) {
 
     console.log(region);

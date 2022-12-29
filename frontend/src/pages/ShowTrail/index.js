@@ -6,15 +6,16 @@ import './styles.css';
 import axios from 'axios';
 
 
-export default function ShowTrail({ getTrails, shownTrail, region, review }) {
+export default function ShowTrail({ getTrails, shownTrail, region }) {
 
-    const [review, setReview] = useState({})
+    const [reviews, setReviews] = useState(shownTrail.reviews)
 
     // function to grab trails by state
-    async function getReview(id) {
-        const showReview = await axios.get(`http://localhost:5001/trail/${id}`)
-        setReview(showReview.data)
-    }
+    // async function getReview(id) {
+    //     const showReview = await axios.get(`http://localhost:5001/trail/${id}`)
+    //     setReview(showReview.data)
+    // }
+
 
 
     return (
@@ -30,7 +31,13 @@ export default function ShowTrail({ getTrails, shownTrail, region, review }) {
             <h3>Waterfalls?:</h3><p>{shownTrail.waterfalls}</p>
             <h3>Total Distance:</h3><p>{shownTrail.distance} Miles</p>
             {/* <h3>{getReview(shownTrail._id)}</h3> */}
-            <p>{review}</p>
+            <p>{shownTrail.reviews}</p>
+            {/* {reviews.map((singleReview, i) => {
+                return(
+                    <h1 key={i}>{singleReview.title}</h1>
+                    <h1>{singleReview.reviewer.username}</h1>
+                )
+            })} */}
 
             <Link onClick={() => getTrails(region)} to='/hikes' >Return to {region} Trails</Link>
         </main>
