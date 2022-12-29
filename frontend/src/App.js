@@ -103,7 +103,7 @@ function App() {
         />
 
         <Route
-          path='/edittrail'
+          path='/edittrail/:id'
           element={<EditTrail />}
         />
       </Routes>
