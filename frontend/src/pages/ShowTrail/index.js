@@ -8,15 +8,18 @@ import axios from 'axios';
 
 export default function ShowTrail({ getTrails, shownTrail, region }) {
 
-    // const [reviews, setReviews] = useState(shownTrail.reviews)
-    // setReviews(shownTrail.reviews)
+    const [reviews, setReviews] = useState(shownTrail.reviews)
 
-    // function to grab trails by state
-    // async function getReview(id) {
-    //     const showReview = await axios.get(`http://localhost:5001/trail/${id}`)
-    //     setReview(showReview.data)
-    // }
+    const displayReview = (reviews) => {
+        if (!reviews.length) return null;
 
+        return reviews.map((review, index) => (
+            <div key={index}>
+                <h3>{review.title}</h3>
+                <p>{review.content}</p>
+            </div>
+        ))
+    }
 
     return (
         <main className="center-item">
@@ -31,14 +34,11 @@ export default function ShowTrail({ getTrails, shownTrail, region }) {
             <h3>Waterfalls?:</h3><p>{shownTrail.waterfalls}</p>
             <h3>Total Distance:</h3><p>{shownTrail.distance} Miles</p>
 
-            {/* <h3>{getReview(shownTrail._id)}</h3> */}
-            <p>{shownTrail.reviews}</p>
+            {/* <p>{shownTrail.reviews}</p> */}
 
-            {/* {reviews.map((singleReview, i) => {
-                return (
-                <p key={i}> {singleReview.title} {singleReview.content}
-                {/* {singleReview.reviewer.username} */}
-            {/* </p>)})} */}
+            <h3>Reviews:</h3>
+            <p>{displayReview(shownTrail.reviews)}</p>
+
 
             <Link onClick={() => getTrails(region)} to='/hikes' >Return to {region} Trails</Link>
         </main>
