@@ -45,8 +45,14 @@ router.get('/OR', async (req, res) => {
 	res.json(orTrails);
 });
 
+// // Create Route
+// router.post('/', isAuthenticated, async (req, res) => {
+// 	const createdTrail = await db.Trail.create(req.body);
+// 	res.json(createdTrail);
+// });
+
 // Create Route
-router.post('/', isAuthenticated, async (req, res) => {
+router.post('/', async (req, res) => {
 	const createdTrail = await db.Trail.create(req.body);
 	res.json(createdTrail);
 });
