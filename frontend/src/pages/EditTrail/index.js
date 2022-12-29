@@ -230,6 +230,7 @@ function EditTrail(data){
             <Form.Label>Distance:</Form.Label>
             <Form.Control
                 type="number"
+                min="0"
                 id="distance"
                 name="distance" 
                 onChange={handleChange}

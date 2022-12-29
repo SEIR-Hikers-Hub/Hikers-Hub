@@ -246,7 +246,8 @@ function AddTrail() {
                     <Form.Group className="mb-3">
                         <Form.Label>Distance:</Form.Label>
                         <Form.Control
-                            type="number" 
+                            type="number"
+                            min="0"
                             id="distance" 
                             name="distance" 
                             placeholder="Miles"
