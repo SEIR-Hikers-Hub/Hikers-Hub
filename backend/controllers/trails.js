@@ -60,7 +60,7 @@ router.post('/', async (req, res) => {
 // Show Route
 router.get('/:id', async (req, res) => {
 	const trail = await db.Trail.findById(req.params.id);
-	console.log(trail._id)
+	// console.log(trail._id)
 	res.json(trail);
 });
 

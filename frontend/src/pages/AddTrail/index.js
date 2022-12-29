@@ -39,17 +39,6 @@ function AddTrail() {
             <div className="row row-cols-sm-2 row-cols-md-4 mx-auto">
                 <Form onSubmit={handleSubmit} className="mx-auto">
 
-
-                    {/* <div className="input">
-                    <label htmlFor="name">Name:</label>
-                    <input
-                        type="text"
-                        id="name"
-                        onChange={handleChange}
-                        value={formState.name}
-                        required
-                    />
-                </div> */}
                     <Form.Group className="mb-3">
                         <Form.Label>Name:</Form.Label>
                         <Form.Control
@@ -63,16 +52,7 @@ function AddTrail() {
                     </Form.Group>
 
 
-                    {/* <div className="input">
-                    <label htmlFor="state">state:</label>
-                    <input
-                        type="text"
-                        id="state"
-                        onChange={handleChange}
-                        value={formState.state}
-                        required
-                    />
-                </div> */}
+
                     <Form.Group className="mb-3">
                         <Form.Label>State:</Form.Label>
                         <Form.Select
@@ -88,15 +68,7 @@ function AddTrail() {
                     </Form.Group>
 
 
-                    {/* <div className="input">
-                    <label htmlFor="location">location:</label>
-                    <input
-                        type="text"
-                        id="location"
-                        onChange={handleChange}
-                        value={formState.location}
-                    />
-                </div> */}
+
                     <Form.Group className="mb-3">
                         <Form.Label>Location:</Form.Label>
                         <Form.Control
@@ -109,15 +81,7 @@ function AddTrail() {
                     </Form.Group>
 
 
-                    {/* <div className="input">
-                    <label htmlFor="difficulty">difficulty:</label>
-                    <input
-                        type="text"
-                        id="difficulty"
-                        onChange={handleChange}
-                        value={formState.difficulty}
-                    />
-                </div> */}
+
                     <Form.Group className="mb-3">
                         <Form.Label>Difficulty:</Form.Label>
                         <Form.Select
@@ -132,16 +96,7 @@ function AddTrail() {
                     </Form.Group>
 
 
-                    {/* <div className="input">
-                    <label htmlFor="description">description:</label>
-                    <input
-                        type="text"
-                        id="description"
-                        onChange={handleChange}
-                        value={formState.description}
-                        required
-                    />
-                </div> */}
+
                     <Form.Group className="mb-3">
                         <Form.Label>Description:</Form.Label>
                         <Form.Control
@@ -155,16 +110,7 @@ function AddTrail() {
                     </Form.Group>
 
 
-                    {/* <div className="input">
-                    <label htmlFor="terrain">terrain:</label>
-                    <input
-                        type="text"
-                        id="terrain"
-                        onChange={handleChange}
-                        value={formState.terrain}
-                        required
-                    />
-                </div> */}
+
                     <Form.Group className="mb-3">
                         <Form.Label>Terrain:</Form.Label>
                         <Form.Select
@@ -183,15 +129,7 @@ function AddTrail() {
                     </Form.Group>
 
 
-                    {/* <div className="input">
-                    <label htmlFor="activity">activity:</label>
-                    <input
-                        type="text"
-                        id="activity"
-                        onChange={handleChange}
-                        value={formState.activity}
-                    />
-                </div> */}
+
                     <Form.Group className="mb-3">
                         <Form.Label>Activity:</Form.Label>
                         <Form.Select
@@ -208,16 +146,7 @@ function AddTrail() {
                     </Form.Group>
 
 
-                    {/* <div className="input">
-                    <label htmlFor="waterfalls">waterfalls:</label>
-                    <input
-                        type="text"
-                        id="waterfalls"
-                        onChange={handleChange}
-                        value={formState.waterfalls}
-                        required
-                    />
-                </div> */}
+
                     <Form.Group className="mb-3">
                         <Form.Label>Waterfalls:</Form.Label>
                         <Form.Select
@@ -233,20 +162,12 @@ function AddTrail() {
                     </Form.Group>
 
 
-                    {/* <div className="input">
-                    <label htmlFor="distance">distance:</label>
-                    <input
-                        type="number"
-                        id="distance"
-                        onChange={handleChange}
-                        value={formState.distance}
-                        required
-                    />
-                </div> */}
+
                     <Form.Group className="mb-3">
                         <Form.Label>Distance:</Form.Label>
                         <Form.Control
-                            type="number" 
+                            type="number"
+                            min="0"
                             id="distance" 
                             name="distance" 
                             placeholder="Miles"
@@ -256,15 +177,7 @@ function AddTrail() {
                     </Form.Group>
 
 
-                    {/* <div className="input">
-                    <label htmlFor="image">image:</label>
-                    <input
-                        type="text"
-                        id="image"
-                        onChange={handleChange}
-                        value={formState.image}
-                    />
-                </div> */}
+
                     <Form.Group className="mb-3">
                         <Form.Label>Image:</Form.Label>
                         <Form.Control

@@ -1,18 +1,27 @@
 import { updateTrail } from '../../utils/api';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { editTrail } from '../../utils/api';
+import { useEffect } from 'react';
 //STYLES
 import './styles.css'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-function EditTrail(data){
+function EditTrail(){
     
     // STATE
+    const [formState, setFormState] = useState({})
 
-    const initialState = data;
-    const [formState, setFormState] = useState(initialState)
-    console.log(initialState);
+    const {id} = useParams()
+    
+    useEffect(() => {
+        editTrail(id).then(data => {
+            setFormState(data)
+        })
+    }, [id])
+    console.log(formState)
 
 
     function handleChange(event){
@@ -26,16 +35,7 @@ function EditTrail(data){
 
         <form>
 
-        {/* <div className="input">
-            <label htmlFor="name">Name:</label>
-            <input 
-                type="text"
-                id="name" 
-                onChange={handleChange}
-                value={formState.name} 
-                required 
-            />
-        </div> */}
+
         <Form.Group className="mb-3">
             <Form.Label>Name:</Form.Label>
             <Form.Control
@@ -48,16 +48,7 @@ function EditTrail(data){
         </Form.Group>
 
 
-        {/* <div className="input">
-            <label htmlFor="state">state:</label>
-            <input 
-                type="text"
-                id="state" 
-                onChange={handleChange}
-                value={formState.state} 
-                required 
-            />
-        </div> */}
+
         <Form.Group className="mb-3">
             <Form.Label>State:</Form.Label>
                 <Form.Select
@@ -73,15 +64,7 @@ function EditTrail(data){
             </Form.Group>
 
 
-        {/* <div className="input">
-            <label htmlFor="location">location:</label>
-            <input 
-                type="number"
-                id="location" 
-                onChange={handleChange}
-                value={formState.location} 
-            />
-        </div> */}
+
         <Form.Group className="mb-3">
             <Form.Label>Location:</Form.Label>
             <Form.Control
@@ -93,15 +76,7 @@ function EditTrail(data){
         </Form.Group>
 
 
-        {/* <div className="input">
-            <label htmlFor="difficulty">difficulty:</label>
-            <input 
-                type="text"
-                id="difficulty" 
-                onChange={handleChange}
-                value={formState.difficulty} 
-            />
-        </div> */}
+
         <Form.Group className="mb-3">
             <Form.Label>Difficulty:</Form.Label>
             <Form.Select
@@ -116,16 +91,7 @@ function EditTrail(data){
         </Form.Group>
 
 
-        {/* <div className="input">
-            <label htmlFor="description">description:</label>
-            <input 
-                type="number" 
-                id="description" 
-                onChange={handleChange}
-                value={formState.description} 
-                required 
-            />
-        </div> */}
+
         <Form.Group className="mb-3">
             <Form.Label>Description:</Form.Label>
             <Form.Control
@@ -138,16 +104,7 @@ function EditTrail(data){
         </Form.Group>
 
 
-        {/* <div className="input">
-            <label htmlFor="terrain">terrain:</label>
-            <input 
-                type="text" 
-                id="terrain" 
-                onChange={handleChange}
-                value={formState.terrain} 
-                required 
-            />
-        </div> */}
+
         <Form.Group className="mb-3">
             <Form.Label>Terrain:</Form.Label>
             <Form.Select
@@ -166,15 +123,7 @@ function EditTrail(data){
         </Form.Group>
 
 
-        {/* <div className="input">
-            <label htmlFor="activity">activity:</label>
-            <input 
-                type="text" 
-                id="activity"
-                onChange={handleChange} 
-                value={formState.activity} 
-            />
-        </div> */}
+
         <Form.Group className="mb-3">
             <Form.Label>Activity:</Form.Label>
             <Form.Select
@@ -191,16 +140,7 @@ function EditTrail(data){
         </Form.Group>
 
 
-        {/* <div className="input">
-            <label htmlFor="waterfalls">waterfalls:</label>
-            <input 
-                type="text"
-                id="waterfalls" 
-                onChange={handleChange}
-                value={formState.waterfalls} 
-                required 
-            />
-        </div> */}
+
         <Form.Group className="mb-3">
             <Form.Label>Waterfalls:</Form.Label>
             <Form.Select
@@ -216,20 +156,12 @@ function EditTrail(data){
         </Form.Group>
 
 
-        {/* <div className="input">
-            <label htmlFor="distance">distance:</label>
-            <input 
-                type="text"
-                id="distance" 
-                onChange={handleChange}
-                value={formState.distance} 
-                required 
-            />
-        </div> */}
+
         <Form.Group className="mb-3">
             <Form.Label>Distance:</Form.Label>
             <Form.Control
                 type="number"
+                min="0"
                 id="distance"
                 name="distance" 
                 onChange={handleChange}
@@ -238,15 +170,7 @@ function EditTrail(data){
         </Form.Group>
 
 
-        {/* <div className="input">
-            <label htmlFor="image">image:</label>
-            <input 
-                type="number"
-                id="image" 
-                onChange={handleChange}
-                value={formState.image} 
-            />
-        </div> */}
+
         <Form.Group className="mb-3">
             <Form.Label>Image:</Form.Label>
             <Form.Control
