@@ -11,6 +11,7 @@ import SignUp from './pages/SignUp';
 import AddTrail from './pages/AddTrail';
 import Hikes from './pages/Hikes';
 import ShowTrail from './pages/ShowTrail';
+import EditTrail from './pages/EditTrail';
 // COMPONENTS
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -26,7 +27,7 @@ function App() {
   const [user, setUser] = useState({})
   const [shownTrail, setShownTrail] = useState({})
   const [region, setRegion] = useState('')
-  // const [reviews, setReviews] = useState({})
+  // const [reviews, setReviews] = useState([])
 
 
   // function to grab trails by state
@@ -98,9 +99,13 @@ function App() {
 
         <Route
           exact path='/trail/:id'
-          element={<ShowTrail shownTrail={shownTrail} getTrails={getTrails} region={region} />}
+          element={<ShowTrail shownTrail={shownTrail} getTrails={getTrails} region={region}/>}
         />
 
+        <Route
+          path='/edittrail'
+          element={<EditTrail />}
+        />
       </Routes>
 
       <Footer />

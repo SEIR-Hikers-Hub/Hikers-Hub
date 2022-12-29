@@ -1,14 +1,18 @@
-
-
-
-import { useState } from 'react'
+import { updateTrail } from '../../utils/api';
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 //STYLES
 import './styles.css'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
-function EditTrail(){
+function EditTrail(data){
     
     // STATE
-    const [formState, setFormState] = useState([])
+
+    const initialState = data;
+    const [formState, setFormState] = useState(initialState)
+    console.log(initialState);
 
 
     function handleChange(event){
@@ -36,7 +40,8 @@ function EditTrail(){
             <Form.Label>Name:</Form.Label>
             <Form.Control
                 type="text"
-                placeholder="Trail Name"
+                id="name"
+                name="name" 
                 onChange={handleChange}
                 value={formState.name}
                 required />
@@ -82,7 +87,7 @@ function EditTrail(){
             <Form.Control
                 type="text"
                 id="location"
-                placeholder="Nearest City"
+                name="location" 
                 onChange={handleChange}
                 value={formState.location} />
         </Form.Group>
@@ -126,7 +131,7 @@ function EditTrail(){
             <Form.Control
                 type="text"
                 id="description"
-                placeholder="Why do you love this trail?"
+                name="description" 
                 onChange={handleChange}
                 value={formState.description}
                 required />
@@ -147,6 +152,7 @@ function EditTrail(){
             <Form.Label>Terrain:</Form.Label>
             <Form.Select
                 id="terrain"
+                name="terrain"
                 onChange={handleChange}
                 value={formState.terrain} required>
                 {/* <option>Terrain</option> */}
@@ -173,6 +179,7 @@ function EditTrail(){
             <Form.Label>Activity:</Form.Label>
             <Form.Select
                 id="activity"
+                name="activity"
                 onChange={handleChange}
                 value={formState.activity}>
                 {/* <option>Activity</option> */}
@@ -198,6 +205,7 @@ function EditTrail(){
             <Form.Label>Waterfalls:</Form.Label>
             <Form.Select
                 id="waterfalls"
+                name="waterfalls"
                 onChange={handleChange}
                 value={formState.waterfalls}
                 required>
@@ -223,7 +231,7 @@ function EditTrail(){
             <Form.Control
                 type="number"
                 id="distance"
-                placeholder="Miles"
+                name="distance" 
                 onChange={handleChange}
                 value={formState.distance}
                 required />
@@ -242,9 +250,9 @@ function EditTrail(){
         <Form.Group className="mb-3">
             <Form.Label>Image:</Form.Label>
             <Form.Control
-                type="email"
+                type="text"
                 id="image"
-                placeholder="Enter email"
+                name="image"
                 onChange={handleChange}
                 value={formState.image} />
             <Form.Text className="text-muted">
