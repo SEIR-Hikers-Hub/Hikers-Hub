@@ -18,3 +18,16 @@ export async function createTrail(formState) {
     const { data } = await axios.post('http://localhost:5001/trail', formState)
     return data
 };
+
+
+// edit trail, get data
+export async function editTrail({id}) {
+    const { data } = await axios.get(`http://localhost:5001/trail/:${id}`)
+    return data
+};
+
+// update trail
+export async function updateTrail(formState) {
+    const { data } = await axios.post('http://localhost:5001/trail/:id', formState)
+    return data
+};
