@@ -64,8 +64,14 @@ router.get('/:id', async (req, res) => {
 	res.json(trail);
 });
 
-// Delete Route
-router.delete('/:id', isAuthenticated, async (req, res) => {
+// Delete Route 
+// router.delete('/:id', isAuthenticated, async (req, res) => {
+// 	await db.Trail.findByIdAndDelete(req.params.id);
+// 	res.json({ status: 200 });
+// });
+
+// Delete Route without authentication for admin
+router.delete('/:id', async (req, res) => {
 	await db.Trail.findByIdAndDelete(req.params.id);
 	res.json({ status: 200 });
 });

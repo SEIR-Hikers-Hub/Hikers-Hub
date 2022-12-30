@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { editTrail } from '../../utils/api';
+import { deleteTrail, editTrail } from '../../utils/api';
+import { useNavigate } from 'react-router-dom';
 
 // STYLES
 import './styles.css';
@@ -9,20 +10,20 @@ import axios from 'axios';
 
 export default function ShowTrail({ getTrails, shownTrail, region }) {
 
+
     // const [reviews, setReviews] = useState(shownTrail.reviews)
-    const trailid = shownTrail._id;
-    console.log(trailid);
 
-    // const displayReview = async (reviews) => {
-    //     if (!reviews.length) return null;
+    // const displayReview = (reviews) => {
+    //     // if (!reviews.length) return null;
 
-    //     return await reviews.map((review, index) => (
+    //     return reviews.map((review, index) => (
     //         <div key={index}>
     //             <h3>{review.title}</h3>
     //             <p>{review.content}</p>
     //         </div>
     //     ))
     // }
+
 
     return (
         <main className="center-item">
@@ -38,12 +39,13 @@ export default function ShowTrail({ getTrails, shownTrail, region }) {
             <h3>Total Distance:</h3><p>{shownTrail.distance} Miles</p>
 
             {/* <p>{shownTrail.reviews}</p> */}
+            {/* 
+            <h3>Reviews:</h3>   
+            <p>{displayReview(shownTrail.reviews)}</p> */}
 
-            {/* <h3>Reviews:</h3>   
-            <p>{displayReview(reviews)}</p> */}
 
-            <Link to={"/edittrail/"+ shownTrail._id}>Edit Trail</Link> <br></br>
-
+            <Link to={"/edittrail/" + shownTrail._id}>Edit Trail</Link> <br></br>
+            <Link onClick={() => deleteTrail(shownTrail._id)} to='/'>Delete Trail</Link> <br></br>
             <Link onClick={() => getTrails(region)} to='/hikes'>Return to {region} Trails</Link>
         </main>
     )
