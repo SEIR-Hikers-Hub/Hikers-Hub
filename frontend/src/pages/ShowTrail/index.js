@@ -13,16 +13,18 @@ export default function ShowTrail({ getTrails, shownTrail, region }) {
 
     // const [reviews, setReviews] = useState(shownTrail.reviews)
 
-    // const displayReview = (reviews) => {
-    //     // if (!reviews.length) return null;
-
-    //     return reviews.map((review, index) => (
-    //         <div key={index}>
-    //             <h3>{review.title}</h3>
-    //             <p>{review.content}</p>
-    //         </div>
-    //     ))
-    // }
+const displayReview = (reviews) => {
+	if (!shownTrail.reviews) return null;
+	console.log('this is review', reviews);
+	return reviews.map((review, i) => (
+		<div key={i}>
+			<h5>{review.title}</h5>
+			<h5>Rating :{review.rating}</h5>
+			<h6>{review.reviewer}</h6>
+			<p>{review.content}</p>
+		</div>
+	));
+};
 
 
     return (
@@ -39,9 +41,9 @@ export default function ShowTrail({ getTrails, shownTrail, region }) {
             <h3>Total Distance:</h3><p>{shownTrail.distance} Miles</p>
 
             {/* <p>{shownTrail.reviews}</p> */}
-            {/* 
+            
             <h3>Reviews:</h3>   
-            <p>{displayReview(shownTrail.reviews)}</p> */}
+            <p>{displayReview(shownTrail.reviews)}</p>
 
 
             <Link className='underlined-link' to={"/edittrail/" + shownTrail._id}>Edit Trail</Link> <br></br>
