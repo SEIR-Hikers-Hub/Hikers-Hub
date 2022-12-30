@@ -246,7 +246,13 @@ const initial_trails = [
         activity: 'hiking',
         waterfalls: 'yes',
         distance: 15,
-        image: 'https://madera.objects.liquidweb.services/photos/16842-half-dome-closeup-from-glacier-point-steve-montalto-hmi-Rectangle-600x400.jpg'
+        image: 'https://madera.objects.liquidweb.services/photos/16842-half-dome-closeup-from-glacier-point-steve-montalto-hmi-Rectangle-600x400.jpg',
+        reviews: [{
+            title: "Breathtaking",
+            rating: 5,
+            content: "The view from the top of half dome is the most beautiful view I've ever seen!!! Bring a good pair of gloves for going up the cables and on the way back it is nice to cool off your feet at the top of Nevada Falls (just be very careful as the granite is slippery). This is the best hike in Yosemite I have ever done.",
+            
+        }]
     },
     {
         name: 'Lake Serene',
