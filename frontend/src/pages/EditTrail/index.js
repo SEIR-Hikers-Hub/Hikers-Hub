@@ -173,7 +173,7 @@ function EditTrail() {
                         id="distance"
                         name="distance"
                         onChange={handleChange}
-                        value={formState.distance}
+                        value={formState.distance || ''}
                         required />
                 </Form.Group>
 

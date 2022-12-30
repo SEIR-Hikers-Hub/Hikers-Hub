@@ -5,8 +5,7 @@ const db = require("./")
 const admin_user =
 {
     username: 'admin',
-    password: 'admin',
-    admin: true
+    password: 'admin'
 }
 
 const initial_trails = [
