@@ -15,7 +15,7 @@ function EditTrail(){
     const [formState, setFormState] = useState({})
 
     const {id} = useParams()
-    
+
     useEffect(() => {
         editTrail(id).then(data => {
             setFormState(data)
