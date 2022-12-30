@@ -28,11 +28,11 @@ export default function ShowTrail({ getTrails, shownTrail, region }) {
     return (
         <main className="center-item">
 
-            <h2>{shownTrail.name}</h2>
+            <h2 className='shown-trail-name' >{shownTrail.name}</h2>
             <img src={shownTrail.image}></img>
             <h3>Location:</h3><p>{shownTrail.location}</p>
             <h3>Difficulty:</h3><p>{shownTrail.difficulty}</p>
-            <h3>Description:</h3><p>{shownTrail.description}</p>
+            <h3>Description:</h3><p className='description-text'>{shownTrail.description}</p>
             <h3>Terrain:</h3><p>{shownTrail.terrain}</p>
             <h3>Activity:</h3><p>{shownTrail.activity}</p>
             <h3>Waterfalls?:</h3><p>{shownTrail.waterfalls}</p>
@@ -44,9 +44,9 @@ export default function ShowTrail({ getTrails, shownTrail, region }) {
             <p>{displayReview(shownTrail.reviews)}</p> */}
 
 
-            <Link className='link' to={"/edittrail/" + shownTrail._id}>Edit Trail</Link> <br></br>
-            <Link className='link' onClick={() => deleteTrail(shownTrail._id)} to='/'>Delete Trail</Link> <br></br>
-            <Link className='link' onClick={() => getTrails(region)} to='/hikes'>Return to {region} Trails</Link>
+            <Link className='underlined-link' to={"/edittrail/" + shownTrail._id}>Edit Trail</Link> <br></br>
+            <Link className='underlined-link' onClick={() => deleteTrail(shownTrail._id)} to='/'>Delete Trail</Link> <br></br>
+            <Link className='underlined-link' onClick={() => getTrails(region)} to='/hikes'>Return to {region} Trails</Link>
         </main>
     )
 };

@@ -23,3 +23,12 @@ a {
 .link:hover {
   color: green;
 }
+
+.underlined-link {
+  color: black;
+  font-size: calc(1vw + 10px);
+}
+
+.underlined-link:hover {
+  color: green;
+}

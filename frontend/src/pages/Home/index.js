@@ -21,7 +21,7 @@ export default function Home({ getTrails, region }) {
         <main className="center-item">
 
 
-            <h1>Welcome to Hikers Hub!</h1>
+            <h1 className='hikers-hub-title' >Welcome to Hikers Hub!</h1>
             <Card>
                 <Link class='link' onClick={() => getTrails('CA')} to='/hikes' >
                     <Card.Img variant="top" src={ca_hike} />
