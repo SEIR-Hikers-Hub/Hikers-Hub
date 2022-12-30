@@ -10,19 +10,18 @@ import axios from 'axios';
 export default function ShowTrail({ getTrails, shownTrail, region }) {
 
     // const [reviews, setReviews] = useState(shownTrail.reviews)
-    const trailid = shownTrail._id;
-    console.log(trailid);
 
-    // const displayReview = async (reviews) => {
-    //     if (!reviews.length) return null;
+    // const displayReview = (reviews) => {
+    //     // if (!reviews.length) return null;
 
-    //     return await reviews.map((review, index) => (
+    //     return reviews.map((review, index) => (
     //         <div key={index}>
     //             <h3>{review.title}</h3>
     //             <p>{review.content}</p>
     //         </div>
     //     ))
     // }
+
 
     return (
         <main className="center-item">
@@ -38,11 +37,12 @@ export default function ShowTrail({ getTrails, shownTrail, region }) {
             <h3>Total Distance:</h3><p>{shownTrail.distance} Miles</p>
 
             {/* <p>{shownTrail.reviews}</p> */}
+            {/* 
+            <h3>Reviews:</h3>   
+            <p>{displayReview(shownTrail.reviews)}</p> */}
 
-            {/* <h3>Reviews:</h3>   
-            <p>{displayReview(reviews)}</p> */}
 
-            <Link to={"/edittrail/"+ shownTrail._id}>Edit Trail</Link> <br></br>
+            <Link to={"/edittrail/" + shownTrail._id}>Edit Trail</Link> <br></br>
 
             <Link onClick={() => getTrails(region)} to='/hikes'>Return to {region} Trails</Link>
         </main>

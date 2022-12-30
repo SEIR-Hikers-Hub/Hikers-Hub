@@ -27,7 +27,7 @@ export async function editTrail(id) {
 };
 
 // update trail
-export async function updateTrail(formState) {
-    const updatedData = await axios.post('http://localhost:5001/trail/:id', formState)
+export async function updateTrail(id, formState) {
+    const updatedData = await axios.put(`http://localhost:5001/trail/${id}`, formState)
     return updatedData.data
 };
