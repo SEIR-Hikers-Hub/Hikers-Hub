@@ -44,7 +44,7 @@ function SignUp(props) {
   return (
     <div>
       <h2>Sign Up</h2>
-      <div class="row row-cols-sm-2 row-cols-md-4 mx-auto login">
+      <div className="row row-cols-sm-2 row-cols-md-4 mx-auto login">
         <Form className="mb-3 mx-auto">
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Username</Form.Label>

@@ -48,7 +48,7 @@ function App() {
   async function getUser() {
     const config = {
       headers: {
-        'Authorization': localStorage.getItem('token')
+        'Authorization': localStorage.token
       }
     };
     // Grab user data from database
