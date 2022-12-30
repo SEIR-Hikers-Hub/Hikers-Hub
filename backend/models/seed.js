@@ -319,16 +319,29 @@ const initial_trails = [
     }
 ]
 
-db.Trail.deleteMany({});
-db.User.deleteMany({});
-
-db.Trail.create(initial_trails, (err, trails) => {
-
+db.Trail.deleteMany({}, (err, trails) => {
     if (err) {
-        console.log("Error on creating trails:", err)
+        console.log('Error occured in remove', err)
     } else {
-        console.log("Created", trails.length, "trails")
+        console.log('Removed all trails')
     }
+
+    db.User.deleteMany({}, (err, user) => {
+        if (err) {
+            console.log('Error occured in remove', err)
+        } else {
+            console.log('Removed all users')
+        }
+    })
+
+    db.Trail.create(initial_trails, (err, trails) => {
+
+        if (err) {
+            console.log("Error on creating trails:", err)
+        } else {
+            console.log("Created", trails.length, "trails")
+        }
+    })
 
     db.User.create(admin_user, (err, user) => {
         if (err) {
@@ -337,5 +350,4 @@ db.Trail.create(initial_trails, (err, trails) => {
             console.log("Created", user.length, "user")
         }
     })
-
 })

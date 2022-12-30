@@ -39,3 +39,9 @@ export async function deleteTrail(id) {
     const deleteData = await axios.delete(`http://localhost:5001/trail/${id}`)
     return console.log('deleted!')
 };
+
+// create review
+export async function createReview(id, formState) {
+    const createdReview = await axios.put(`http://localhost:5001/trail/${id}/review`, formState)
+    return createdReview.data
+};

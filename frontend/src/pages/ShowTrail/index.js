@@ -1,20 +1,34 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { deleteTrail, editTrail } from '../../utils/api';
-import { useNavigate } from 'react-router-dom';
-import Header from '../../components/Header';
+import { deleteTrail, editTrail, createReview } from '../../utils/api';
 // STYLES
 import './styles.css';
-import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 
 export default function ShowTrail({ getTrails, shownTrail, region, isLoggedIn }) {
 
-    // state declaration: build JSX array of NavBar items
+    // STATE
+    const [formState, setFormState] = useState({})
+    const navigate = useNavigate()
     const initialState = []
     const [editDeleteOptions, setEditDeleteOptions] = useState(initialState)
 
-    // add NavBar items to JSX array depending on App login state
+    const { id } = useParams()
+
+    function handleChange(event) {
+        setFormState({ ...formState, [event.target.id]: event.target.value })
+    }
+
+    const handleSubmit = (event) => {
+        // stops the page from reloading on submit
+        event.preventDefault();
+        createReview(id, formState);
+        navigate('/');
+    };
+
+    // use effect to conditionally render edit and delete functionality if signed in
     useEffect(() => {
         if (isLoggedIn) {
             setEditDeleteOptions(initialState.concat(
@@ -38,7 +52,6 @@ export default function ShowTrail({ getTrails, shownTrail, region, isLoggedIn })
 
     const displayReview = (reviews) => {
         if (!shownTrail.reviews) return null;
-        console.log('this is review', reviews);
         return reviews.map((review, i) => (
             <div key={i}>
                 <h5>{review.title}</h5>
@@ -64,10 +77,77 @@ export default function ShowTrail({ getTrails, shownTrail, region, isLoggedIn })
             <h3>Total Distance:</h3><p>{shownTrail.distance} Miles</p>
 
             {/* <p>{shownTrail.reviews}</p> */}
+            <br></br><br></br>
+            <h2>Leave a Review!</h2>
+            <br></br>
+
+                <Form onSubmit={handleSubmit} className="mx-auto">
+
+                    <Form.Group className="mb-3">
+                        <Form.Label>Title:</Form.Label>
+                        <Form.Control
+                            type="text"
+                            id="title"
+                            title="title"
+                            onChange={handleChange}
+                            placeholder="Title for review goes here"
+                            required />
+                    </Form.Group>
+
+
+
+                    <Form.Group className="mb-3">
+                        <Form.Label>Rating:</Form.Label>
+                        <Form.Select
+                            id="rating"
+                            onChange={handleChange}
+                            required>
+                            <option>Rate this hike</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </Form.Select>
+                    </Form.Group>
+
+
+
+                    <Form.Group className="mb-3">
+                        <Form.Label>Content:</Form.Label>
+                        <Form.Control
+                            type="text"
+                            id="content"
+                            name="content"
+                            onChange={handleChange}
+                            placeholder="Leave your review here" />
+                    </Form.Group>
+
+
+
+                    <Form.Group className="mb-3">
+                        <Form.Label>Reviewer:</Form.Label>
+                        <Form.Control
+                            type="text"
+                            id="reviewer"
+                            name="reviewer"
+                            onChange={handleChange}
+                            placeholder="Your name" />
+                    </Form.Group>
+
+                    <br></br>
+
+                    <Button variant="primary" type="submit">Post Review</Button>
+
+                </Form>
             
-            <h3>Reviews:</h3>   
+            <br></br><br></br><br></br>
+
+            <h2>Reviews For This Hike</h2>
+
+            <br></br><br></br>
+
             <p>{displayReview(shownTrail.reviews)}</p>
 
+            <br></br><br></br>
 
             {editDeleteOptions}
 

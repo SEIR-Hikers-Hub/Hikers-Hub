@@ -1,8 +1,7 @@
-import { updateTrail } from '../../utils/api';
+import { updateTrail, editTrail } from '../../utils/api';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { editTrail } from '../../utils/api';
 import { useEffect } from 'react';
 //STYLES
 import './styles.css'
