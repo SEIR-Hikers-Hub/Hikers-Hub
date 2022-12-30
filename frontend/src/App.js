@@ -48,7 +48,7 @@ function App() {
   async function getUser() {
     const config = {
       headers: {
-        'Authorization': localStorage.getItem('token')
+        'Authorization': localStorage.token
       }
     };
     // Grab user data from database
@@ -99,7 +99,7 @@ function App() {
 
         <Route
           exact path='/trail/:id'
-          element={<ShowTrail shownTrail={shownTrail} getTrails={getTrails} region={region}/>}
+          element={<ShowTrail shownTrail={shownTrail} getTrails={getTrails} region={region} />}
         />
 
         <Route
