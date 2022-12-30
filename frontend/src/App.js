@@ -99,7 +99,7 @@ function App() {
 
         <Route
           exact path='/trail/:id'
-          element={<ShowTrail shownTrail={shownTrail} getTrails={getTrails} region={region} reviews={reviews}/>}
+          element={<ShowTrail shownTrail={shownTrail} getTrails={getTrails} region={region} reviews={reviews} isLoggedIn={isLoggedIn} />}
         />
 
         <Route

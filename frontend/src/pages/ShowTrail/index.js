@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { deleteTrail, editTrail } from '../../utils/api';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
@@ -8,23 +8,46 @@ import './styles.css';
 import axios from 'axios';
 
 
-export default function ShowTrail({ getTrails, shownTrail, region }) {
+export default function ShowTrail({ getTrails, shownTrail, region, isLoggedIn }) {
+
+    // state declaration: build JSX array of NavBar items
+    const initialState = []
+    const [editDeleteOptions, setEditDeleteOptions] = useState(initialState)
+
+    // add NavBar items to JSX array depending on App login state
+    useEffect(() => {
+        if (isLoggedIn) {
+            setEditDeleteOptions(initialState.concat(
+                <div>
+                    <Link className='underlined-link' to={"/edittrail/" + shownTrail._id}>Edit Trail</Link> <br></br>
+                    <Link className='underlined-link' onClick={() => deleteTrail(shownTrail._id)} to='/'>Delete Trail</Link> <br></br>
+                    <Link className='underlined-link' onClick={() => getTrails(region)} to='/hikes'>Return to {region} Trails</Link>
+                </div>
+            ))
+        } else {
+            setEditDeleteOptions(initialState.concat([
+                <div>
+                    <Link className='underlined-link' onClick={() => getTrails(region)} to='/hikes'>Return to {region} Trails</Link>
+                </div>
+            ]))
+        }
+    }, [isLoggedIn])
 
 
     // const [reviews, setReviews] = useState(shownTrail.reviews)
 
-const displayReview = (reviews) => {
-	if (!shownTrail.reviews) return null;
-	console.log('this is review', reviews);
-	return reviews.map((review, i) => (
-		<div key={i}>
-			<h5>{review.title}</h5>
-			<h5>Rating :{review.rating}</h5>
-			<h6>{review.reviewer}</h6>
-			<p>{review.content}</p>
-		</div>
-	));
-};
+    const displayReview = (reviews) => {
+        if (!shownTrail.reviews) return null;
+        console.log('this is review', reviews);
+        return reviews.map((review, i) => (
+            <div key={i}>
+                <h5>{review.title}</h5>
+                <h5>Rating :{review.rating}</h5>
+                <h6>{review.reviewer}</h6>
+                <p>{review.content}</p>
+            </div>
+        ));
+    };
 
 
     return (
@@ -46,9 +69,8 @@ const displayReview = (reviews) => {
             <p>{displayReview(shownTrail.reviews)}</p>
 
 
-            <Link className='underlined-link' to={"/edittrail/" + shownTrail._id}>Edit Trail</Link> <br></br>
-            <Link className='underlined-link' onClick={() => deleteTrail(shownTrail._id)} to='/'>Delete Trail</Link> <br></br>
-            <Link className='underlined-link' onClick={() => getTrails(region)} to='/hikes'>Return to {region} Trails</Link>
+            {editDeleteOptions}
+
         </main>
     )
 };
