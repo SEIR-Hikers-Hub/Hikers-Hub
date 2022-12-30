@@ -27,7 +27,7 @@ function App() {
   const [user, setUser] = useState({})
   const [shownTrail, setShownTrail] = useState({})
   const [region, setRegion] = useState('')
-  // const [reviews, setReviews] = useState([])
+  const [reviews, setReviews] = useState([])
 
 
   // function to grab trails by state
@@ -41,7 +41,7 @@ function App() {
   async function getTrail(id) {
     const shownTrailData = await axios.get(`http://localhost:5001/trail/${id}`)
     setShownTrail(shownTrailData.data)
-    // setReviews(shownTrailData.data.reviews)
+    setReviews(shownTrailData.data.reviews)
   }
 
   // Function to grab token from active user
@@ -99,7 +99,7 @@ function App() {
 
         <Route
           exact path='/trail/:id'
-          element={<ShowTrail shownTrail={shownTrail} getTrails={getTrails} region={region} />}
+          element={<ShowTrail shownTrail={shownTrail} getTrails={getTrails} region={region} reviews={reviews}/>}
         />
 
         <Route
