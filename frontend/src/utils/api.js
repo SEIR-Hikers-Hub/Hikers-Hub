@@ -1,6 +1,8 @@
 
 import axios from 'axios';
 
+
+
 // create user
 export async function createUser(formData) {
     const { data } = await axios.post('http://localhost:5001/user/signup', formData)
@@ -30,4 +32,10 @@ export async function editTrail(id) {
 export async function updateTrail(id, formState) {
     const updatedData = await axios.put(`http://localhost:5001/trail/${id}`, formState)
     return updatedData.data
+};
+
+// delete trail
+export async function deleteTrail(id) {
+    const deleteData = await axios.delete(`http://localhost:5001/trail/${id}`)
+    return console.log('deleted!')
 };
