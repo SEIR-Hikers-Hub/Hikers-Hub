@@ -12,15 +12,16 @@ export default function Hikes({ trails, getTrail, region }) {
 
     return (
         <main className="center-item">
-            <a href='/'>Previous</a>
-            <h2>Welcome to the {region} Trails page</h2>
+            <a className='link' href='/'>Previous</a>
+            <h2 className='hikes-title' >Welcome to the {region} Trails page</h2>
             <div className="trails">
                 {trails && trails.map((trail, i) => {
 
                     return (
 
-                        <div key={i}>
+                        <div className='hikes' key={i}>
                             <Link
+                                className='underlined-link'
                                 onClick={() => getTrail(trail._id)}
                                 to={`/trail/${trail._id}`}>
                                 {trail.name}

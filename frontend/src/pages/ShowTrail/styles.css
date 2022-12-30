@@ -8,3 +8,11 @@ img {
 main {
     margin: 0em 3em 0em 3em;
 }
+
+.shown-trail-name {
+    margin: 10% 0 6% 0;
+}
+
+.description-text {
+    padding: 0 10%;
+}

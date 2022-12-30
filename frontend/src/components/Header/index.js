@@ -24,11 +24,11 @@ export default function Header(props) {
         if (props.isLoggedIn) {
             setNavItems(initialState.concat(
                 <Nav className="me-auto" key='2'>
-                    <Button className="log" onClick={() => {
+                    <Nav.Link className="log" onClick={() => {
                         props.setIsLoggedIn(false)
                         localStorage.clear()
                         console.log(localStorage.token)
-                    }}>Log Out</Button>
+                    }}>Log Out</Nav.Link>
                     <Nav.Link className="nav-item" href="/addtrail">Add Trail</Nav.Link>
                 </Nav>
             ))
@@ -46,7 +46,7 @@ export default function Header(props) {
 
         <Navbar className="navbar" variant="light" fixed="top" expand="lg">
             <Container>
-                <Link to='/'><Navbar.Brand className="nav-logo">Logo</Navbar.Brand></Link>
+                <Link className="link" to='/'><Navbar.Brand className="nav-logo">Logo</Navbar.Brand></Link>
 
                 {/* <img src="../../assets/hikers_hub_logo.png" className="logo" alt="hikers hub logo"/> */}
             
