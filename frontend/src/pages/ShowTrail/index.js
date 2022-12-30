@@ -19,6 +19,8 @@ const displayReview = (reviews) => {
 	return reviews.map((review, i) => (
 		<div key={i}>
 			<h5>{review.title}</h5>
+			<h5>Rating :{review.rating}</h5>
+			<h6>{review.reviewer}</h6>
 			<p>{review.content}</p>
 		</div>
 	));
