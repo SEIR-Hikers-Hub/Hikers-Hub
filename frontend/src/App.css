@@ -13,3 +13,22 @@
 a {
   text-decoration: none;
 }
+
+.link {
+  text-decoration: none;
+  color: black;
+  font-size: calc(1vw + 10px);
+}
+
+.link:hover {
+  color: green;
+}
+
+.underlined-link {
+  color: black;
+  font-size: calc(1vw + 10px);
+}
+
+.underlined-link:hover {
+  color: green;
+}
