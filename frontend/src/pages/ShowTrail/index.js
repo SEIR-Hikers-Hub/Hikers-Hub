@@ -44,9 +44,9 @@ export default function ShowTrail({ getTrails, shownTrail, region }) {
             <p>{displayReview(shownTrail.reviews)}</p> */}
 
 
-            <Link to={"/edittrail/" + shownTrail._id}>Edit Trail</Link> <br></br>
-            <Link onClick={() => deleteTrail(shownTrail._id)} to='/'>Delete Trail</Link> <br></br>
-            <Link onClick={() => getTrails(region)} to='/hikes'>Return to {region} Trails</Link>
+            <Link className='link' to={"/edittrail/" + shownTrail._id}>Edit Trail</Link> <br></br>
+            <Link className='link' onClick={() => deleteTrail(shownTrail._id)} to='/'>Delete Trail</Link> <br></br>
+            <Link className='link' onClick={() => getTrails(region)} to='/hikes'>Return to {region} Trails</Link>
         </main>
     )
 };

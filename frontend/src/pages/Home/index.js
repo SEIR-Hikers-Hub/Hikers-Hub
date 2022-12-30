@@ -23,7 +23,7 @@ export default function Home({ getTrails, region }) {
 
             <h1>Welcome to Hikers Hub!</h1>
             <Card>
-                <Link onClick={() => getTrails('CA')} to='/hikes' >
+                <Link class='link' onClick={() => getTrails('CA')} to='/hikes' >
                     <Card.Img variant="top" src={ca_hike} />
                     <Card.Body>
                         <Card.Text>
@@ -35,7 +35,7 @@ export default function Home({ getTrails, region }) {
             <br />
 
             <Card>
-                <Link onClick={() => getTrails('OR')} to='/hikes' >
+                <Link class='link' onClick={() => getTrails('OR')} to='/hikes' >
                     <Card.Img variant="top" src={or_hike} />
                     <Card.Body>
                         <Card.Text>
@@ -47,7 +47,7 @@ export default function Home({ getTrails, region }) {
 
             <br />
             <Card>
-                <Link onClick={() => getTrails('WA')} to='/hikes' >
+                <Link class='link' onClick={() => getTrails('WA')} to='/hikes' >
                     <Card.Img variant="top" src={wa_hike} />
                     <Card.Body>
                         <Card.Text>

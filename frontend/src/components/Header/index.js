@@ -46,7 +46,7 @@ export default function Header(props) {
 
         <Navbar className="navbar" variant="light" fixed="top" expand="lg">
             <Container>
-                <Link to='/'><Navbar.Brand className="nav-logo">Logo</Navbar.Brand></Link>
+                <Link className="link" to='/'><Navbar.Brand className="nav-logo">Logo</Navbar.Brand></Link>
 
                 {/* <img src="../../assets/hikers_hub_logo.png" className="logo" alt="hikers hub logo"/> */}
             
