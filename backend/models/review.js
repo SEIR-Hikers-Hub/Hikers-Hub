@@ -8,11 +8,7 @@ const reviewSchema = new Schema(
 		title: { type: String, required: true },
 		rating: { type: Number, required: true },
 		content: { type: String, required: true },
-		reviewer: {
-			type: mongoose.Schema.Types.ObjectId,
-			ref: 'User',
-			required: true
-		}
+		reviewer: { type: String, default: "Anonymous"}
 	},
 	{
 		timestamps: true

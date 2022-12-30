@@ -15,7 +15,11 @@ const trailSchema = new Schema(
         waterfalls: { type: String, enum: ['yes', 'no'], default: 'no' },
         distance: { type: Number, required: true },
         image: { type: String, default: '/assets/hikers_hub_logo.png' },
-        reviews: [reviewSchema]
+        reviews: [reviewSchema], 
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }
     }
 )
 

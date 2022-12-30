@@ -7,11 +7,12 @@ const router = express.Router();
 const jwt = require('jwt-simple')
 const config = require('../config/config')
 
-function isAuthenticated(req, res, next) {
+function isAuthenticated (req, res, next) {
 	if (req.headers.authorization) {
 		const token = req.headers.authorization
 		const decoded = jwt.decode(token, config.jwtSecret)
 		const foundUser = db.User.findById(decoded.id)
+		console.log(foundUser)
 		if (foundUser.admin) {
 			next()
 		} else {
@@ -45,17 +46,17 @@ router.get('/OR', async (req, res) => {
 	res.json(orTrails);
 });
 
-// // Create Route
-// router.post('/', isAuthenticated, async (req, res) => {
-// 	const createdTrail = await db.Trail.create(req.body);
-// 	res.json(createdTrail);
-// });
-
-// Create Route without authentication for admin
-router.post('/', async (req, res) => {
+// Create Route
+router.post('/', isAuthenticated, async (req, res) => {
 	const createdTrail = await db.Trail.create(req.body);
 	res.json(createdTrail);
 });
+
+// Create Route without authentication for admin
+// router.post('/', async (req, res) => {
+// 	const createdTrail = await db.Trail.create(req.body);
+// 	res.json(createdTrail);
+// });
 
 // Show Route
 router.get('/:id', async (req, res) => {
@@ -65,16 +66,16 @@ router.get('/:id', async (req, res) => {
 });
 
 // Delete Route 
-// router.delete('/:id', isAuthenticated, async (req, res) => {
-// 	await db.Trail.findByIdAndDelete(req.params.id);
-// 	res.json({ status: 200 });
-// });
-
-// Delete Route without authentication for admin
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', isAuthenticated, async (req, res) => {
 	await db.Trail.findByIdAndDelete(req.params.id);
 	res.json({ status: 200 });
 });
+
+// Delete Route without authentication for admin
+// router.delete('/:id', async (req, res) => {
+// 	await db.Trail.findByIdAndDelete(req.params.id);
+// 	res.json({ status: 200 });
+// });
 
 // // Update Route
 // router.put('/:id', isAuthenticated, async (req, res) => {

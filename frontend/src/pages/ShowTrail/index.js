@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { deleteTrail, editTrail } from '../../utils/api';
 import { useNavigate } from 'react-router-dom';
-
+import Header from '../../components/Header';
 // STYLES
 import './styles.css';
 import axios from 'axios';
