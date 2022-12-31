@@ -1,8 +1,11 @@
 
+// DEPENDENCIES
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+// FUNCTIONS
 import { createReview } from '../../utils/api';
 // STYLES
+import './style.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -26,7 +29,7 @@ export default function CreateReviewForm() {
 
     return (
 
-        <Form onSubmit={handleSubmit} className="mx-auto">
+        <Form onSubmit={handleSubmit} className="mx-auto review-form">
 
             <Form.Group className="mb-3">
                 <Form.Label>Title:</Form.Label>
@@ -43,7 +46,44 @@ export default function CreateReviewForm() {
 
             <Form.Group className="mb-3">
                 <Form.Label>Rating:</Form.Label>
-                <Form.Select
+                <div className="mb-3">
+                    <Form.Check
+                        inline
+                        label="1"
+                        name="rating"
+                        type="radio"
+                        id="1"
+                    />
+                    <Form.Check
+                        inline
+                        label="2"
+                        name="rating"
+                        type="radio"
+                        id="2"
+                    />
+                    <Form.Check
+                        inline
+                        label="3"
+                        name="rating"
+                        type="radio"
+                        id="3"
+                    />
+                    <Form.Check
+                        inline
+                        label="4"
+                        name="rating"
+                        type="radio"
+                        id="4"
+                    />
+                    <Form.Check
+                        inline
+                        label="5"
+                        name="rating"
+                        type="radio"
+                        id="5"
+                    />
+                </div>
+                {/* <Form.Select
                     id="rating"
                     onChange={handleChange}
                     required>
@@ -51,7 +91,7 @@ export default function CreateReviewForm() {
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                </Form.Select>
+                </Form.Select> */}
             </Form.Group>
 
 
