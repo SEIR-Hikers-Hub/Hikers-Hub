@@ -1,8 +1,11 @@
 
+// DEPENDENCIES
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+// FUNCTIONS
 import { createReview } from '../../utils/api';
 // STYLES
+import './style.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -26,7 +29,7 @@ export default function CreateReviewForm() {
 
     return (
 
-        <Form onSubmit={handleSubmit} className="mx-auto">
+        <Form onSubmit={handleSubmit} className="mx-auto review-form">
 
             <Form.Group className="mb-3">
                 <Form.Label>Title:</Form.Label>
@@ -40,8 +43,7 @@ export default function CreateReviewForm() {
             </Form.Group>
 
 
-
-            <Form.Group className="mb-3">
+            <Form.Group>
                 <Form.Label>Rating:</Form.Label>
                 <Form.Select
                     id="rating"
@@ -51,6 +53,8 @@ export default function CreateReviewForm() {
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
                 </Form.Select>
             </Form.Group>
 
