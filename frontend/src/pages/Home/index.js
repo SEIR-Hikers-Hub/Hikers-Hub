@@ -16,7 +16,7 @@ import './styles.css';
 
 export default function Home({ getTrails, region }) {
 
-    console.log(region);
+    // console.log(region);
     return (
         <main className="center-item">
 
