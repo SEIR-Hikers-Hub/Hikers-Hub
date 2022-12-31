@@ -54,7 +54,7 @@ export default function ShowTrail({ getTrails, shownTrail, region, isLoggedIn })
         if (!shownTrail.reviews) return null;
         return reviews.map((review, i) => (
             <div key={i}>
-                <h5>{review.title}</h5>
+                <h3>{review.title}</h3>
                 <h5>Rating :{review.rating}</h5>
                 <h6>{review.reviewer}</h6>
                 <p>{review.content}</p>
