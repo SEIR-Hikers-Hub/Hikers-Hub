@@ -43,47 +43,9 @@ export default function CreateReviewForm() {
             </Form.Group>
 
 
-
-            <Form.Group className="mb-3">
+            <Form.Group>
                 <Form.Label>Rating:</Form.Label>
-                <div className="mb-3">
-                    <Form.Check
-                        inline
-                        label="1"
-                        name="rating"
-                        type="radio"
-                        id="1"
-                    />
-                    <Form.Check
-                        inline
-                        label="2"
-                        name="rating"
-                        type="radio"
-                        id="2"
-                    />
-                    <Form.Check
-                        inline
-                        label="3"
-                        name="rating"
-                        type="radio"
-                        id="3"
-                    />
-                    <Form.Check
-                        inline
-                        label="4"
-                        name="rating"
-                        type="radio"
-                        id="4"
-                    />
-                    <Form.Check
-                        inline
-                        label="5"
-                        name="rating"
-                        type="radio"
-                        id="5"
-                    />
-                </div>
-                {/* <Form.Select
+                <Form.Select
                     id="rating"
                     onChange={handleChange}
                     required>
@@ -91,7 +53,9 @@ export default function CreateReviewForm() {
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                </Form.Select> */}
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </Form.Select>
             </Form.Group>
 
 
