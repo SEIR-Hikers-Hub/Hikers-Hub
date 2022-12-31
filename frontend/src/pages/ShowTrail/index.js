@@ -80,9 +80,15 @@ export default function ShowTrail({ getTrails, shownTrail, region, isLoggedIn })
 
             <div className="show-trail-content">
 
+                <img src={shownTrail.image}></img>
+
                 <div className="show-hike-section">
                     <h2 className='shown-trail-name' >{shownTrail.name}</h2>
-                    <img src={shownTrail.image}></img>
+                </div>
+
+                <br></br>
+
+                <div className="show-hike-section">
                     <h3>Location:</h3><p>{shownTrail.location}</p>
                     <h3>Difficulty:</h3><p>{shownTrail.difficulty}</p>
                     <h3>Description:</h3><p className='description-text'>{shownTrail.description}</p>
@@ -104,12 +110,14 @@ export default function ShowTrail({ getTrails, shownTrail, region, isLoggedIn })
                 
                 <br></br>
 
-                <div>
                     <h2 className="show-hike-section" >Reviews For This Hike</h2>
 
                     <br></br>
+                <div>
 
                     <div>{displayReview(shownTrail.reviews)}</div>
+                    
+
                 </div>
 
                 <br></br><br></br>
