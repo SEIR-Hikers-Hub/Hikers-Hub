@@ -34,14 +34,14 @@ function App() {
 
   // function to grab trails by state
   async function getTrails(region) {
-    const allTrails = await axios.get(`http://localhost:5001/trail/${region}`)
+    const allTrails = await axios.get(`trail/${region}`)
     setTrails(allTrails.data)
     setRegion(region)
   }
 
   // function to grab trails by state
   async function getTrail(id) {
-    const shownTrailData = await axios.get(`http://localhost:5001/trail/${id}`)
+    const shownTrailData = await axios.get(`trail/${id}`)
     setShownTrail(shownTrailData.data)
     setReviews(shownTrailData.data.reviews)
   }
@@ -54,7 +54,7 @@ function App() {
       }
     };
     // Grab user data from database
-    const userData = await axios.get("http://localhost:5001/user", config)
+    const userData = await axios.get('user', config)
     setUser(userData.data)
   };
 
