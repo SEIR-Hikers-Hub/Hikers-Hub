@@ -36,11 +36,14 @@ function EditTrail() {
     };
 
     return (
-
         <div className="row row-cols-sm-2 row-cols-md-4 mx-auto">
-            <h2>Edit a Trail</h2>
+    
 
             <Form onSubmit={handleSubmit} className="mx-auto">
+                <br></br>
+                <br></br>
+                <br></br>
+                <h3>Edit Trail</h3>
 
 
                 <Form.Group className="mb-3">
