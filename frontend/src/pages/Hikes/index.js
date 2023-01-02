@@ -12,7 +12,8 @@ export default function Hikes({ trails, getTrail, region }) {
 
     return (
         <main className="center-item">
-            <a className='link' href='/'>Previous</a>
+            <br></br>
+            <a className='link' href='/'>Home</a>
             <h2 className='hikes-title' >Welcome to the {region} Trails page</h2>
             <div className="trails">
                 {trails && trails.map((trail, i) => {
