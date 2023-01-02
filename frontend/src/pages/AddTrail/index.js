@@ -21,7 +21,7 @@ function AddTrail() {
         // stops the page from reloading on submit
         event.preventDefault();
         // axios put request
-        // axios.post(`http://localhost:5001/trail`, formState)
+        // axios.post(`trail`, formState)
         createTrail(formState);
         navigate('/');
     };
