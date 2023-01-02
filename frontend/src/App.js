@@ -12,6 +12,7 @@ import AddTrail from './pages/AddTrail';
 import Hikes from './pages/Hikes';
 import ShowTrail from './pages/ShowTrail';
 import EditTrail from './pages/EditTrail';
+import Weather from './pages/Weather';
 // COMPONENTS
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -28,6 +29,7 @@ function App() {
   const [shownTrail, setShownTrail] = useState({})
   const [region, setRegion] = useState('')
   const [reviews, setReviews] = useState([])
+  const [weatherData, setWeatherData] = useState([]);
 
 
   // function to grab trails by state
@@ -68,7 +70,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
+      <Header setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setWeatherData={setWeatherData} />
 
       <Routes>
 
@@ -106,6 +108,12 @@ function App() {
           path='/edittrail/:id'
           element={<EditTrail />}
         />
+
+        <Route
+            path='/weather'
+            element={<Weather weatherData={weatherData}/>}
+          />
+        
       </Routes>
 
       <Footer />
