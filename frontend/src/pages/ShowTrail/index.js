@@ -5,7 +5,7 @@ import { deleteTrail } from '../../utils/api';
 import CreateReviewForm from '../../components/CreateReviewForm';
 // STYLES
 import './styles.css';
-import Table from 'react-bootstrap/Table';
+// import Table from 'react-bootstrap/Table';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
