@@ -82,10 +82,8 @@ export default function Header(props) {
 		<Navbar className='navbar' variant='light' fixed='top' expand='lg'>
 			<Container>
 				<Link className='link' to='/'>
-					<Navbar.Brand className='nav-logo'>Logo</Navbar.Brand>
+					<Navbar.Brand className='nav-logo'><img src="../../assets/hikers_hub_logo.png" className="logo" alt="hikers hub logo"/></Navbar.Brand>
 				</Link>
-
-				{/* <img src="../../assets/hikers_hub_logo.png" className="logo" alt="hikers hub logo"/> */}
 
 				<Navbar.Toggle aria-controls='basic-navbar-nav' />
 				<Navbar.Collapse id='basic-navbar-nav'>

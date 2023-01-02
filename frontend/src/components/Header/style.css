@@ -8,11 +8,14 @@
 }
 
 .logo {
-    float: left;
-    height: 20%;
-    width: 20%;
+    height: 50px;
+    width: 50px;
     margin: 0;
-    display: inline-block
+    display: inline-block;
+    border: none;
+    position: absolute;
+    top: 0.2em;
+    left: 0.5em;
 }
 
 .nav-logo {
@@ -20,7 +23,11 @@
 }
 
 .log {
-    width: 20%;
+    width: 200px;
+}
+
+.nav-item {
+    width: 200px;
 }
 
 #basic-navbar-nav {
