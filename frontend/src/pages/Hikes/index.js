@@ -1,22 +1,34 @@
 
+
+
+// PACKAGES
+import { Link } from 'react-router-dom';
 // STYLES
 import './styles.css';
 
 
-export default function Hikes({trails}) {
-
+export default function Hikes({ trails, getTrail, region }) {
+    console.log(region);
 
     return (
         <main className="center-item">
-            
-            <h1>This is the Hike page.</h1>
+            <br></br>
+            <a className='link' href='/'>Home</a>
+            <h2 className='hikes-title' >Welcome to the {region} Trails page</h2>
             <div className="trails">
                 {trails && trails.map((trail, i) => {
-                return (
-                    <div key={i}>
-                    {trail.name}
-                    </div>
-                )
+
+                    return (
+
+                        <div className='hikes' key={i}>
+                            <Link
+                                className='underlined-link'
+                                onClick={() => getTrail(trail._id)}
+                                to={`/trail/${trail._id}`}>
+                                {trail.name}
+                            </Link>
+                        </div>
+                    )
                 })}
             </div>
         </main>

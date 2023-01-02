@@ -6,3 +6,30 @@
 .navbar-dark .navbar-brand {
     color: green;
 }
+
+.logo {
+    height: 50px;
+    width: 50px;
+    margin: 0;
+    display: inline-block;
+    border: none;
+    position: absolute;
+    top: 0.2em;
+    left: 0.5em;
+}
+
+.nav-logo {
+    text-decoration: none;
+}
+
+.log {
+    width: 200px;
+}
+
+.nav-item {
+    width: 200px;
+}
+
+#basic-navbar-nav {
+    text-align: center;
+}

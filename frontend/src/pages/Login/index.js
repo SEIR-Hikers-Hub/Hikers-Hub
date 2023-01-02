@@ -3,6 +3,8 @@ import { loginToAccount } from '../../utils/api';
 import { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 //STYLES
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import './styles.css'
 
 export default function Login(props) {
@@ -38,37 +40,29 @@ export default function Login(props) {
   return (
     <div>
       <h2>Login</h2>
+      <div className="row row-cols-sm-2 row-cols-md-4 mx-auto">
+        <Form className="mb-3 mx-auto">
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Username</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" id='username'
+              onChange={handleChange}
+              value={formData.username}
+              required />
+          </Form.Group>
 
-      <form>
-        <div>
-          <label htmlFor='username'>Username</label>
-          <input
-            type='text'
-            id='username'
-            onChange={handleChange}
-            value={formData.username}
-            required
-          />
-        </div>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" id='password'
+              onChange={handleChange}
+              value={formData.password}
+              required />
+          </Form.Group>
 
-        <div>
-          <label htmlFor='password'>Password</label>
-          <input
-            type='password'
-            id='password'
-            onChange={handleChange}
-            value={formData.password}
-            required
-          />
-        </div>
-        <button
-          type='submit'
-          onClick={(e) => handleSubmit(e, formData)}
-        >
-          Login
-        </button>
-
-      </form>
+          <Button variant="primary" type="submit" onClick={(e) => handleSubmit(e, formData)}>
+            Login
+          </Button>
+        </Form>
+      </div>
     </div>
   )
 };

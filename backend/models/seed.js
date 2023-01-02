@@ -5,8 +5,7 @@ const db = require("./")
 const admin_user =
 {
     username: 'admin',
-    password: 'admin',
-    admin: true
+    password: 'admin'
 }
 
 const initial_trails = [
@@ -103,7 +102,8 @@ const initial_trails = [
         terrain: 'hill',
         activity: 'hiking',
         waterfalls: 'yes',
-        distance: 6
+        distance: 6,
+        image: 'https://images.world-of-waterfalls.com/Wallace_Falls_017_05262006.jpg'
     },
     {
         name: 'Vance Creek Bridge',
@@ -114,7 +114,8 @@ const initial_trails = [
         terrain: 'hill',
         activity: 'hiking',
         waterfalls: 'no',
-        distance: 1
+        distance: 1,
+        image: 'http://www.highestbridges.com/wiki/images/0/00/VanceCreekDrone.jpg'
     },
     {
         name: 'Colchuck Lake',
@@ -125,7 +126,8 @@ const initial_trails = [
         terrain: 'mountain',
         activity: 'hiking',
         waterfalls: 'no',
-        distance: 8
+        distance: 8,
+        image: 'https://westcoastwayfarers.com/wp-content/uploads/2021/05/Hiking-to-Colchuck-Lake-at-sunrise-scaled.jpg'
     },
     {
         name: 'Tolmie Peak',
@@ -136,7 +138,8 @@ const initial_trails = [
         terrain: 'mountain',
         activity: 'hiking',
         waterfalls: 'no',
-        distance: 8
+        distance: 8,
+        image: 'https://149799271.v2.pressablecdn.com/wp-content/uploads/2014/07/IMG_4216.jpg'
     },
     {
         name: 'Skyline Loop Trail',
@@ -147,10 +150,11 @@ const initial_trails = [
         terrain: 'mountain',
         activity: 'hiking',
         waterfalls: 'yes',
-        distance: 6
+        distance: 6,
+        image: 'https://t5z4d2m6.rocketcdn.me/wp-content/uploads/2020/04/DSC06289.jpg'
     },
     {
-        name: 'Mount Pilchuk',
+        name: 'Mount Pilchuck',
         state: 'WA',
         location: 'Verlot, WA',
         difficulty: 'Advanced',
@@ -158,7 +162,8 @@ const initial_trails = [
         terrain: 'mountain',
         activity: 'hiking',
         waterfalls: 'no',
-        distance: 6
+        distance: 6,
+        image: 'https://i.pinimg.com/originals/f3/39/9b/f3399bab75e692fdf4d9dceb71eba509.jpg'
     },
     {
         name: 'Rattlesnake Ledge',
@@ -169,7 +174,8 @@ const initial_trails = [
         terrain: 'mountain',
         activity: 'hiking',
         waterfalls: 'no',
-        distance: 4
+        distance: 4,
+        image: 'https://mtsgreenway.org/wp-content/uploads/2021/04/RattlesnakeLedge_KatieEgresi_032321-scaled.jpg'
     },
     {
         name: 'The Enchantments',
@@ -180,7 +186,8 @@ const initial_trails = [
         terrain: 'mountain',
         activity: 'backpacking',
         waterfalls: 'yes',
-        distance: 18
+        distance: 18,
+        image: 'https://s27363.pcdn.co/wp-content/uploads/2020/08/Enchantments-for-Facebook-1.jpg'
     },
     {
         name: 'Feather Falls',
@@ -239,7 +246,13 @@ const initial_trails = [
         activity: 'hiking',
         waterfalls: 'yes',
         distance: 15,
-        image: 'https://madera.objects.liquidweb.services/photos/16842-half-dome-closeup-from-glacier-point-steve-montalto-hmi-Rectangle-600x400.jpg'
+        image: 'https://madera.objects.liquidweb.services/photos/16842-half-dome-closeup-from-glacier-point-steve-montalto-hmi-Rectangle-600x400.jpg',
+        reviews: [{
+            title: "Breathtaking",
+            rating: 5,
+            content: "The view from the top of half dome is the most beautiful view I've ever seen!!! Bring a good pair of gloves for going up the cables and on the way back it is nice to cool off your feet at the top of Nevada Falls (just be very careful as the granite is slippery). This is the best hike in Yosemite I have ever done.",
+            
+        }]
     },
     {
         name: 'Lake Serene',
@@ -306,16 +319,29 @@ const initial_trails = [
     }
 ]
 
-db.Trail.deleteMany({});
-db.User.deleteMany({});
-
-db.Trail.create(initial_trails, (err, trails) => {
-
+db.Trail.deleteMany({}, (err, trails) => {
     if (err) {
-        console.log("Error on creating trails:", err)
+        console.log('Error occured in remove', err)
     } else {
-        console.log("Created", trails.length, "trails")
+        console.log('Removed all trails')
     }
+
+    db.User.deleteMany({}, (err, user) => {
+        if (err) {
+            console.log('Error occured in remove', err)
+        } else {
+            console.log('Removed all users')
+        }
+    })
+
+    db.Trail.create(initial_trails, (err, trails) => {
+
+        if (err) {
+            console.log("Error on creating trails:", err)
+        } else {
+            console.log("Created", trails.length, "trails")
+        }
+    })
 
     db.User.create(admin_user, (err, user) => {
         if (err) {
@@ -324,5 +350,4 @@ db.Trail.create(initial_trails, (err, trails) => {
             console.log("Created", user.length, "user")
         }
     })
-
 })
