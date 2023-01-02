@@ -18,23 +18,7 @@ export default function ShowTrail({ getTrails, shownTrail, region, isLoggedIn })
     const [editDeleteOptions, setEditDeleteOptions] = useState(initialState)
 
     // use effect to conditionally render edit and delete functionality if signed in
-    useEffect(() => {
-        if (isLoggedIn) {
-            setEditDeleteOptions(initialState.concat(
-                <div>
-                    <Link className='underlined-link' to={"/edittrail/" + shownTrail._id}>Edit Trail</Link> <br></br>
-                    <Link className='underlined-link' onClick={() => deleteTrail(shownTrail._id)} to='/'>Delete Trail</Link> <br></br>
-                    <Link className='underlined-link' onClick={() => getTrails(region)} to='/hikes'>Return to {region} Trails</Link>
-                </div>
-            ))
-        } else {
-            setEditDeleteOptions(initialState.concat([
-                <div>
-                    <Link className='underlined-link' onClick={() => getTrails(region)} to='/hikes'>Return to {region} Trails</Link>
-                </div>
-            ]))
-        }
-    }, [isLoggedIn])
+    //use effect removed as it was messing with edit delete functions
 
 
     // const [reviews, setReviews] = useState(shownTrail.reviews)
@@ -107,22 +91,25 @@ export default function ShowTrail({ getTrails, shownTrail, region, isLoggedIn })
                 <div className="show-hike-section" >
                     <CreateReviewForm />
                 </div>
-                
+
                 <br></br>
 
-                    <h2 className="show-hike-section" >Reviews For This Hike</h2>
+                <h2 className="show-hike-section" >Reviews For This Hike</h2>
 
-                    <br></br>
+                <br></br>
                 <div>
 
                     <div>{displayReview(shownTrail.reviews)}</div>
-                    
+
 
                 </div>
 
                 <br></br><br></br>
 
-                {editDeleteOptions}
+
+                <Link className='underlined-link' to={"/edittrail/" + shownTrail._id}>Edit Trail</Link> <br></br>
+                <Link className='underlined-link' onClick={() => deleteTrail(shownTrail._id)} to='/'>Delete Trail</Link> <br></br>
+                <Link className='underlined-link' onClick={() => getTrails(region)} to='/hikes'>Return to {region} Trails</Link>
 
                 <br></br>
 
