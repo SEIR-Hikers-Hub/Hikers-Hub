@@ -37,21 +37,6 @@ export default function ShowTrail({ getTrails, shownTrail, region, isLoggedIn })
     }, [isLoggedIn])
 
 
-    // const [reviews, setReviews] = useState(shownTrail.reviews)
-
-    // const displayReview = (reviews) => {
-    //     if (!shownTrail.reviews) return null;
-    //     return reviews.map((review, i) => (
-    //         <div key={i}>
-    //             <div id="review-container">
-    //                 <h3>{review.title}</h3>
-    //                 <h5>Rating: {review.rating} / 5</h5>
-    //             </div>
-    //             <h6>{review.reviewer}</h6>
-    //             <p>{review.content}</p>
-    //         </div>
-    //     ));
-    // };
 
     const displayReview = (reviews) => {
         if (!shownTrail.reviews) return null;

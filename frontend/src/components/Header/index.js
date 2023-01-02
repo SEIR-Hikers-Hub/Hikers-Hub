@@ -26,31 +26,6 @@ export default function Header(props) {
 	const navigate = useNavigate()
 
 	
-	//  only gets 10 request a day/ONLY CONSOLE LOGS 
-	// const options = {
-	// 		method: 'GET',
-	// 		url: `https://forecast9.p.rapidapi.com/rapidapi/forecast/${searchString}/summary/`,
-	// 		headers: {
-	// 			'X-RapidAPI-Key': '722919fb48mshe0390e26231a4fdp1f95e1jsn1d9ac9af1b45',
-	// 			'X-RapidAPI-Host': 'forecast9.p.rapidapi.com'
-	// 		}
-	// 	};
-	// 	//search form functions
-	// 	function handleChange(event) {
-	// 		setSearchString(event.target.value);
-	// 	}
-	// 	async function handleSubmit(event) {
-	// 		event.preventDefault();
-	// 		await axios
-	// 			.request(options)
-	// 			.then(function (response) {
-	// 				console.log(response.data);
-	// 			})
-	// 			.catch(function (error) {
-	// 				console.error(error);
-	// 			});
-	// 	}
-
 	// search form functions
 	function handleChange(event) {
 		setSearchString(event.target.value);
@@ -61,13 +36,12 @@ export default function Header(props) {
 		await axios.request(options)
 		.then(response => {
 			console.log(response.data);
-			
+			//output is sent to console but not to the weather page yet
 			props.setWeatherData(response.data);
-			// navigate('/weather', userData);
 		}).catch(function (error) {
 			console.error(error);
 		});
-		navigate('/weather');
+		// navigate('/weather');
 	}
 
 	const options = {

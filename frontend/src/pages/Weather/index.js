@@ -15,7 +15,7 @@ export default function Weather({weatherData}) {
         <main>
             <h1>welcome to weather page</h1>
             <p>Location:</p>
-            <p>{weatherData.forecast}</p>
+            
         </main>
     )
 };
