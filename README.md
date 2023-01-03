@@ -8,6 +8,9 @@ https://github.com/SEIR-Hikers-Hub/Hikers-Hub
 <h3>Link to launched app:</h3>
 https://hikers-hub.herokuapp.com
 
+<h3>List of technologies used:</h3>
+Mongoose (MongoDB), Express, ReactJS, NodeJS, HTML, CSS, Bootstrap for React
+
 
 <h3>Team Members:</h3> 
 David Milton, Erik Scheive, Miguel Darensbourg, Suma Gowrishankar
@@ -87,9 +90,20 @@ As a visitor to the Hiker’s Hub site, I should be able to browse by activity: 
 | /user     | POST          | create          | create          |
 
 
+
 Wireframes:
 
 
 
 Screenshots:
+
+
+
+<h3>Unsolved Problems / Hurdles </h3>
+<ul>
+<li> Unable to show Edit trail and Delete trail only for authenticated user. We were partially successful in trying to put these in a useEffect but it interfered with the functioning of the EDIT and DELETE routes. </li>
+<li> Weather data: We are able to pull the data from a third party API (WeatherAPI from RapidAPI) but unable to render the JSON data on a separate page.</li>
+<li> We were unable to link the reviews to the user. </li>
+<li> We could not get to our stretch goals of searching by activity. </li>
+</ul>
 
