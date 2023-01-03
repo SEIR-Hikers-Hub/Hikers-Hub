@@ -97,7 +97,8 @@ As a visitor to the Hiker’s Hub site, I should be able to browse by activity: 
 
 
 <h3>Screenshots:</h3>
-![Screen Shot 2023-01-02 at 5 13 59 PM](https://user-images.githubusercontent.com/115961145/210290895-dd136e65-cc97-47f8-ae55-16dc54f4feea.png)
+![Screen Shot 2023-01-02 at 5 13 59 PM]
+<img src="https://user-images.githubusercontent.com/115961145/210290895-dd136e65-cc97-47f8-ae55-16dc54f4feea.png" alt="hikers hub screenshot"/>
 
 
 <h3>Unsolved Problems / Hurdles </h3>
