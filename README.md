@@ -25,14 +25,14 @@ Suma: Scrum master and Documentation
 Hikers Hub: Choose your trail and hike it too ! Walking the trials and trails of life !!
 
 <h3>What does the site do ?</h3>
-We have two personas that can interact with the site - Authenticated Admin to add, edit, remove trails and Users who can browse trails by state or by activity and leave reviews and photos
-Hikes are divided by state - CA, OR, WA.
-Trails are also activity based - hiking, backpacking, biking, offroading.
-Users can check the weather of the area they choose by entering in the location in the search bar.
+We have two personas that can interact with the site - Authenticated Admin to add, edit, remove trails and Users who can browse trails by state or by activity and leave reviews and photos. <br>
+Hikes are divided by state - CA, OR, WA. <br>
+Trails are also activity based - hiking, backpacking, biking, offroading. <br>
+Users can check the weather of the area they choose by entering in the location in the search bar. <br>
 
 <h3>Models</h3>
-User - username, password, location, admin (yes/no)
-Trail - name, images, location, difficulty, description, terrain, length, review (subdocument)
+User - username, password, location, admin (yes/no) <br>
+Trail - name, images, location, difficulty, description, terrain, length, review (subdocument) <br>
 Reviews - title, description, rating 
 
 <h3>MVP:</h3>
