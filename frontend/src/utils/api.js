@@ -36,7 +36,7 @@ export async function updateTrail(id, formState) {
 
 // delete trail
 export async function deleteTrail(id) {
-    const deleteData = await axios.delete(`trail/${id}`)
+    const deleteData = await axios.delete(`${id}`)
     return console.log('deleted!')
 };
 
