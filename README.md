@@ -91,12 +91,17 @@ As a visitor to the Hiker’s Hub site, I should be able to browse by activity: 
 
 
 
-Wireframes:
+<h3>Wireframes:</h3>
+![wire_frame_01](https://user-images.githubusercontent.com/115300440/210290995-40c13075-2596-4701-b9dc-3ececfdbaf33.jpg)
+![wire_frame_02](https://user-images.githubusercontent.com/115300440/210290996-c14fa44f-f2bd-4c30-b55f-1c5db1962ca5.jpg)
+![wire_frame_03](https://user-images.githubusercontent.com/115300440/210290997-42038ce8-d721-43a1-8b34-473a13bbc38a.jpg)
+![wire_frame_04](https://user-images.githubusercontent.com/115300440/210290998-fa789e2b-7d54-42e7-95f7-068329591746.jpg)
+![wire_frame_05](https://user-images.githubusercontent.com/115300440/210290999-5b4e1db1-726d-40bd-aa4d-7889a8508aa8.jpg)
+![wire_frame_06](https://user-images.githubusercontent.com/115300440/210291000-45707aab-6f0b-45bc-a202-ef170e3999d1.jpg)
 
 
 
-Screenshots:
-
+<h3>Screenshots:</h3>
 ![Screen Shot 2023-01-02 at 5 13 59 PM](https://user-images.githubusercontent.com/115961145/210290895-dd136e65-cc97-47f8-ae55-16dc54f4feea.png)
 
 
