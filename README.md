@@ -78,13 +78,13 @@ As a visitor to the Hiker’s Hub site, I should be able to browse by activity: 
 
 | **URL**   | **HTTP Verb** | **REST Action** | **CRUD Action** |
 | --------- | ------------- | --------------- | --------------- |
-| /hike/    | GET           | index           | read            |
-| /hike/:id | GET           | show            | read            |
-| /hike/new | GET           | new             | read            |
-| /hike     | POST          | create          | create          |
-| /hike/:id/edit | GET      | edit            | read            |
-| /hike/:id | PATCH/PUT     | update          | update          |
-| /hike/:id | DELETE        | destroy         | delete          |
+| /trail/    | GET           | index           | read            |
+| /trail/:id | GET           | show            | read            |
+| /trail/new | GET           | new             | read            |
+| /trail     | POST          | create          | create          |
+| /trail/:id/edit | GET      | edit            | read            |
+| /trail/:id | PATCH/PUT     | update          | update          |
+| /trail/:id | DELETE        | destroy         | delete          |
 | /user/    | GET           | index           | read            |
 | /user/new | GET           | new             | read            |
 | /user     | POST          | create          | create          |
