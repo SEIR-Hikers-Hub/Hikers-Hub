@@ -58,20 +58,20 @@ We were <b>not</b> able to achieve any of our stretch goals:
 <b>Two personas</b>: Admin and Visitor
 
 <b>Login for Admin (MVP)</b>
-As an admin I would like to login to the Hiker’s Hub app and be able to view, add, edit and remove trails so that I can manage the app.
+As an admin I would like to login to the Hiker’s Hub app and be able to view, add, edit and remove trails so that I can manage the app. <br>
 
 <b>CRUD operations - Admin (MVP)</b>
-As an admin, once I am logged in, I should be able to Add a new Trail and access it later with the Show Trails option
-As an admin, once I am logged in, I should be able to Edit a trail and access the changed information with the Show trails option. 
-As an admin, once I am logged in, I should be able to Remove a trail. 
+As an admin, once I am logged in, I should be able to Add a new Trail and access it later with the Show Trails option <br>
+As an admin, once I am logged in, I should be able to Edit a trail and access the changed information with the Show trails option. <br>
+As an admin, once I am logged in, I should be able to Remove a trail. <br>
 
 <b>User checks out a trail </b>
-As a visitor to the Hiker’s Hub site, I should be able to check the weather of the area in which I want to hike today. (third party API integration of Weather API) 
-As a visitor to the Hiker’s Hub site, I should be able to add reviews and photos to any trail so that I can share my experience and be able to recommend hikes to others.
+As a visitor to the Hiker’s Hub site, I should be able to check the weather of the area in which I want to hike today. (third party API integration of Weather API) <br>
+As a visitor to the Hiker’s Hub site, I should be able to add reviews and photos to any trail so that I can share my experience and be able to recommend hikes to others. <br>
 
 <b>User Search (Stretch - Unable to achieve)</b>
-As a visitor to the Hiker’s Hub site, I should be able to search for any trails in CA, OR or WA so that I can choose a trail to hike !
-As a visitor to the Hiker’s Hub site, I should be able to browse by activity: hiking, biking, backpacking, offroading
+As a visitor to the Hiker’s Hub site, I should be able to search for any trails in CA, OR or WA so that I can choose a trail to hike ! <br>
+As a visitor to the Hiker’s Hub site, I should be able to browse by activity: hiking, biking, backpacking, offroading <br>
 
 
 <b>ROUTES :</b> 
