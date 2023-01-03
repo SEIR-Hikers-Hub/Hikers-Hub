@@ -92,12 +92,26 @@ As a visitor to the Hiker’s Hub site, I should be able to browse by activity: 
 
 
 <h3>Wireframes:</h3>
+<p>Wire Frame 01</p>
+<img src="https://user-images.githubusercontent.com/115300440/210291294-e271ba4e-f8d7-4297-b1db-4840e567a2d1.jpg" alt="wire frame 01"/>
 
+<p>Wire Frame 02</p>
+<img src="https://user-images.githubusercontent.com/115300440/210291298-626a2857-5854-454d-a792-d75d8dea6cce.jpg" alt="wire frame 02"/>
 
+<p>Wire Frame 03</p>
+<img src="https://user-images.githubusercontent.com/115300440/210291300-9c268dcf-5ec2-40c3-aa89-208f47bb5056.jpg" alt="wire frame 03"/>
+
+<p>Wire Frame 04</p>
+<img src="https://user-images.githubusercontent.com/115300440/210291301-8e59c850-2567-4c87-9aeb-409635120599.jpg" alt="wire frame 04"/>
+
+<p>Wire Frame 05</p>
+<img src="https://user-images.githubusercontent.com/115300440/210291304-98a95815-f439-4272-9674-149fae73b650.jpg" alt="wire frame 05"/>
+
+<p>Wire Frame 06</p>
+<img src="https://user-images.githubusercontent.com/115300440/210291306-0cc3daf5-11d1-4552-81b4-5ba3c73f7cb1.jpg" alt="wire frame 06"/>
 
 
 <h3>Screenshots:</h3>
-![Screen Shot 2023-01-02 at 5 13 59 PM]
 <img src="https://user-images.githubusercontent.com/115961145/210290895-dd136e65-cc97-47f8-ae55-16dc54f4feea.png" alt="hikers hub screenshot"/>
 
 
