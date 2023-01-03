@@ -24,13 +24,13 @@ export async function createTrail(formState) {
 
 // edit trail, get data
 export async function editTrail(id) {
-    const editTrailData = await axios.get(`trail/${id}`)
+    const editTrailData = await axios.get(`${id}`)
     return editTrailData.data
 };
 
 // update trail
 export async function updateTrail(id, formState) {
-    const updatedData = await axios.put(`trail/${id}`, formState)
+    const updatedData = await axios.put(`${id}`, formState)
     return updatedData.data
 };
 
