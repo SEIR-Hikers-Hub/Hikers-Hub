@@ -16,9 +16,9 @@ Mongoose (MongoDB), Express, ReactJS, NodeJS, HTML, CSS, Bootstrap for React
 David Milton, Erik Scheive, Miguel Darensbourg, Suma Gowrishankar
 
 <h3>Roles: </h3> 
-David: Designer and Database mgmt
-Erik: Github Mgmt and Database mgmt
-Miguel: API mgmt and Documentation
+David: Designer and Database mgmt <br>
+Erik: Github Mgmt and Database mgmt <br>
+Miguel: API mgmt and Documentation <br>
 Suma: Scrum master and Documentation 
 
 <h3>Project Idea:</h3> 
