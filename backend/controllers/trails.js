@@ -48,7 +48,7 @@ router.get('/OR', async (req, res) => {
 // });
 
 // // Create Review Route
-router.put('/review/:id/', async (req, res) => {
+router.put('/:id/review', async (req, res) => {
 	const trail = await db.Trail.findByIdAndUpdate(
 		req.params.id,
 		{ $push: { reviews: req.body } },
@@ -127,12 +127,4 @@ router.put('/:id', async (req, res) => {
 
 
 
-// router.put('/:id/review', async (req, res) => {
-// 	const trail = await db.Trail.findByIdAndUpdate(
-// 		req.params.id,
-// 		{ $push: { reviews: req.body } },
-// 		{ new: true }
-// 	);
-// 	res.json(trail);
-// });
 module.exports = router;
