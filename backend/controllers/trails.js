@@ -113,14 +113,22 @@ router.put('/:id', async (req, res) => {
 
 
 // // Create Review Route
-router.put('/:id/review', async (req, res) => {
+router.put('/review/:id/', async (req, res) => {
 	const trail = await db.Trail.findByIdAndUpdate(
 		req.params.id,
 		{ $push: { reviews: req.body } },
 		{ new: true }
-	)
-	res.json(trail)
-
+	);
+	res.json(trail);
 });
 
+
+// router.put('/:id/review', async (req, res) => {
+// 	const trail = await db.Trail.findByIdAndUpdate(
+// 		req.params.id,
+// 		{ $push: { reviews: req.body } },
+// 		{ new: true }
+// 	);
+// 	res.json(trail);
+// });
 module.exports = router;

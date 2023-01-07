@@ -42,6 +42,11 @@ export async function deleteTrail(id) {
 
 // create review
 export async function createReview(id, formState) {
-    const createdReview = await axios.put(`trail/${id}/review`, formState)
+    const createdReview = await axios.put(`trail/review/${id}`, formState);
     return createdReview.data
 };
+
+// export async function createReview(id, formState) {
+//     const createdReview = await axios.put(`trail/${id}/review`, formState)
+//     return createdReview.data
+// };
