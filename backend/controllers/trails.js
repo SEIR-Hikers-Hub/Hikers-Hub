@@ -47,11 +47,22 @@ router.get('/OR', async (req, res) => {
 // 	res.json(createdTrail);
 // });
 
+// // Create Review Route
+router.put('/review/:id/', async (req, res) => {
+	const trail = await db.Trail.findByIdAndUpdate(
+		req.params.id,
+		{ $push: { reviews: req.body } },
+		{ new: true }
+	);
+	res.json(trail);
+});
+
 // Create Route without authentication for admin
 router.post('/', async (req, res) => {
 	const createdTrail = await db.Trail.create(req.body);
 	res.json(createdTrail);
 });
+
 
 //Create route with new user relational model
 // router.post('/', async (req, res) => {
@@ -63,6 +74,7 @@ router.post('/', async (req, res) => {
 //     createdTrail.save()
 //     res.json(createdTrail)
 // })
+
 
 
 // Show Route
@@ -112,15 +124,7 @@ router.put('/:id', async (req, res) => {
 });
 
 
-// // Create Review Route
-router.put('/review/:id/', async (req, res) => {
-	const trail = await db.Trail.findByIdAndUpdate(
-		req.params.id,
-		{ $push: { reviews: req.body } },
-		{ new: true }
-	);
-	res.json(trail);
-});
+
 
 
 // router.put('/:id/review', async (req, res) => {
